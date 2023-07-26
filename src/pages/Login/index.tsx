@@ -1,11 +1,12 @@
-import react from 'react';
+import React from 'react';
+import LoginContainer from '../../components/LoginContainer';
 
 function Login() {
-  return ( 
+  return (
     <div>
-      <h1>Login</h1>
+      <LoginContainer />
     </div>
-   );
+  );
 }
 
 export default Login;
