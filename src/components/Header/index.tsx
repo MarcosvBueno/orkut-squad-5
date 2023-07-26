@@ -1,14 +1,15 @@
 import { HeaderWrapper } from "./style";
-
+import logo from "../../assets/img/logo-orkut.svg";
 function Header() {
   return (  
     <HeaderWrapper>
-      <ul>
-        <li><a href="/">HOME</a></li>
-        <li><a href="/profile">PROFILE</a></li>
-        <li><a href="/register">REGISTER</a></li>
-        <li><a href="/edit-profile">EDIT PROFILE</a></li>
-      </ul>
+      <div>
+        <img src={logo} alt="" />
+        <nav>
+          <a href="/">Sobre o Orkut</a>
+          <a href="/">Centro de segurança</a>
+        </nav>
+      </div>
     </HeaderWrapper>
   );
 }
