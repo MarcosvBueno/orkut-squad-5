@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     --dark-20: #B4AEAE;
     --dark-30: #FDFEFF;
     --dark-40: #FFFFFF;
+    --bg-text: #EFF3F8;
     --message-color: #2962FF;
     --success-color: #0BB07B;
     --warning-color: #FFCE52;
@@ -29,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
   body {
-    background-color: #fff;
+    background-color: #D9E6F7;
     margin: 0 auto ;
     color: #000;
     font-family: 'SF Pro Display Regular',sans-serif;
