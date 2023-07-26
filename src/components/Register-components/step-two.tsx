@@ -1,12 +1,14 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Container } from '../../pages/Register/style';
+import logo from "../../assets/img/logo-orkut-simples.svg";
 
 
 interface Props {
   handleComplete: () => void;
+  handlePrev: () => void;
 }
 
-const Step2 = ({ handleComplete }: Props) => {
+const Step2 = ({ handleComplete, handlePrev  }: Props) => {
 
   const initialFormData = {
     selfDescription: '',
@@ -49,6 +51,13 @@ const Step2 = ({ handleComplete }: Props) => {
     handleComplete();
   };
 
+  const handleGoBack = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    handlePrev();
+  };
+
+
+
   const statusRelacionamentoOptions = [
     'solteiro(a)',
     'casado(a)',
@@ -58,7 +67,7 @@ const Step2 = ({ handleComplete }: Props) => {
 
   return (
     <Container onSubmit={handleSubmit}>
-    
+      <img src={logo} alt="Logo"/>
       <h2>Acesse o orkut</h2>
       <input
         type="text"
@@ -122,16 +131,18 @@ const Step2 = ({ handleComplete }: Props) => {
         onChange={handleChange}
       />
 
-      <label>
-        Profile photo:
+      
         <input
           type="file"
           name="profilePhoto"
+          placeholder="Profile Photo"
           onChange={handleChange}
           accept="image/*"
         />
-      </label>
-      <button type="submit">Enviar</button>
+      
+      <button type="submit">Finalizar Login</button>
+      <button className="btn-back" onClick={handleGoBack}>Voltar para o cadastro</button> 
+      <button className="btn-back">Voltar para o Login</button> 
 
     </Container>
   );

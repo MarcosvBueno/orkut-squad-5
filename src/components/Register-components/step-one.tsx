@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Container } from '../../pages/Register/style';
+import logo from "../../assets/img/logo-orkut-simples.svg";
 
 
 interface Props {
@@ -41,7 +42,7 @@ const Step1 = ({ handleNext }: Props) => {
 
   return (
     <Container  onSubmit={handleSubmit}>
-
+   <img src={logo} alt="Logo"/>
       <h2>Acesse o orkut</h2>
       <input
         type="text"
@@ -53,7 +54,7 @@ const Step1 = ({ handleNext }: Props) => {
       <input
         type="text"
         name="email"
-        placeholder="Email"
+        placeholder="E-mail"
         value={formData.email}
         onChange={handleChange}
       />
@@ -99,7 +100,7 @@ const Step1 = ({ handleNext }: Props) => {
         value={formData.confirmPassword}
         onChange={handleChange}
       />
-      <button type="submit">Enviar</button>
+      <button type="submit">Criar conta</button>
 
     </Container>
   );
