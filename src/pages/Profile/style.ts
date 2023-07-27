@@ -2,264 +2,119 @@ import styled from 'styled-components';
 
 
 export const Container = styled.main`
-  margin: 0 352px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  max-width: 1215px;
+  margin : 0 auto;
+  justify-content: flex-start;
   align-items: flex-start;
-  gap: 32px;
   margin-top: 80px;
-  margin-bottom:54px;
-`;
-
-export const ProfileHeader = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  margin-bottom:24px;
+  display: grid;
+  grid-template-columns: 280px 592px 280px; 
+  grid-template-rows: 411px 411px ;
+  grid-gap: 32px;
   
-
- > button {
-  width: 280px;
-  height: 56px;
-  border-radius: 16px;
-  border: none;
-  color: var(--brand-color);
-  background-color: var(--dark-30);
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
- }
-
-  button:hover {
-    background-color: var(--brand-color);
-    color : var(--dark-30);
-    scale: 1.030;
+  & .div1 {
+    grid-row: 1 ; 
   }
 
-`;
-
-
-export const UserProfile = styled.div`
-  width: 280px;
-  height: 324px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--dark-30);
-  border-radius: 16px;
-  color: var(--dark-10);
-  gap: 24px;
-
-  > img {
-    width: 170px;
-    height: 170px;
-    border-radius: 100px;
-    border: 3px solid var(--brand-color);
-    padding: 5px
+  & .div2 {
+    grid-row: 1 / 3;
   }
 
-  > h2 {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
+  & .div3 {
+    grid-row: 1 ;
+    
   }
 
-  > p {
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
+  & .div4 {
+    grid-row: 2 ;
+    grid-column: 3; 
   }
 
 
-`;
+  @media (max-width: 968px) {
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto; 
+    margin-top: 30px;
+    & .div0{
+      grid-row: 1;
+    }
 
-export const ProfileInfo = styled.div`
-  width: 592px;
-  height: 854px;
-  border-radius: 16px;
-  background: var(--dark-30);
-  padding: 24px ;
+    & .div1 {
+      grid-row: 2;
+    }
 
-  > h2 {
-    font-size: 26px;
-    font-style: normal;
-    font-weight: 500;
-    color: var(--dark-10);
-  }
+    & .div2 {
+      grid-row: 4;
+    }
 
+    & .div3 {
+      grid-row: 3;
+      grid-column: 1;
+    }
 
-`;
-
-export const PhraseContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  margin-top: 25px;
-  border-radius: 10px;
-  background: var(--bg-text);
-  width: 544px;
-  height: 39.365px;
-
-  > p {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    color: var(--dark-10);
-    padding: 12px;
-  }
-
-  &::before {
-    content: ''; 
-    position: absolute;
-    top: 235px;
-    left: 709px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent var(--bg-text) transparent;
+    & .div4 {
+      grid-row: 5;
+      grid-column: 1; 
+    }
   }
 `;
 
-
-export const QualitiesContainer = styled.div`
+export const InputContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: left;
-  margin-top: 32px;
-  width:70%;
-  margin-bottom: 32px;
+  justify-content: center;
+  align-items: center;  
+  position: relative; 
+  display:none;
+  margin-bottom: 15px;
+ 
+ input{
+  width: 320px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--dark-30);
+  padding: 0 45px;
+  border: none;
 
-  img {
-    width: 24px;
-    height: 24px;
-    margin-right: 6px;
-  }
-
-  img:hover{
-    cursor: pointer;
-    scale: 1.1;
-  }
-
-  h3{
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  color: var(--dark-10);
-  margin-bottom: 8px;
+ }
+
+ img{
+  width: 21.634px;
+  height: 24px;
+  position: absolute;
+  left: 13px;
+ }
+
+ @media (max-width: 768px) {
+  display:flex;
+
+  input{
+    width: 592px;
+    
   }
+    img{
+      left: 100px;
+      
+    }
 
-
-`;
-
-export const StarContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-
-  > p{
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    color: var(--dark-10);
-  }
-`;
-
-export const PersonalInformation = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-
-  > div {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-  }
-
-  h3{
-    color: var(--dark-20);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-  }
-
-  p{
-    color: var(--dark-10);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
   }
 
 `;
-
-export const UserInterests=  styled.section`
-
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  justify-content: center;
-  align-items: left;
-  
-
-  > div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-  }
-
-  h3{
-    color: var(--dark-20);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-  }
-
-  p{
-    color: var(--dark-10);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    border-radius: 30px;
-    border: 1px solid var(--brand-color);
-    padding: 2px 16px;
-    transition: all 0.2s ease-in-out;
-  }
-
-  p:hover {
-    background-color: var(--brand-color);
-    color: var(--dark-40);
-  }
-
-  button {
-    border: none;
-    background: none;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    color: var(--brand-color);
-    cursor: pointer;
-    transition:  all 0.2s ease-in-out;
-  }
-
-  button:hover {
-    scale: 1.1;
-  }
-`;
-
 
 export const ContainerFAndC = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  
 
-  > div {
+  > div > div{
     display: flex;
     flex-direction: column; 
     gap: 24px;
@@ -273,7 +128,7 @@ export const ContainerFAndC = styled.div`
   img {
     width: 56px;
     height: 56px;
-    border-radius: 12px;
+    
   }
 
   h3 {
@@ -297,41 +152,15 @@ export const ContainerFAndC = styled.div`
   button:hover {
     scale: 1.1;
   }
-`;
 
-export const FriendList = styled.div`
+  @media (max-width: 768px) { 
 
-
-  img {
-    border-radius: 100px;
-  }
-
-  > div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-
-  }
-
-  :nth-child(1) {
-    margin-bottom: 4px;
-  }
-
-`;
-
-export const CommunityList = styled.div`
-
-  > div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center; 
-  }
-
-  :nth-child(1) {
-    margin-bottom: 4px;
+   >  div {
+      width: 592px;
+      justify-content: center;
+      padding: 0px 40px;
+      
+    }
+  
   }
 `;
