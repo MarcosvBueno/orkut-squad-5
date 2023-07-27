@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const ProfileInfoSection = styled.div`
+export const ProfileInfoSection = styled.section`
   width: 592px;
   height: 854px;
   border-radius: 16px;
   background: var(--dark-30);
-  padding: 24px ;
+  padding: 24px;
 
   > h2 {
     font-size: 26px;
@@ -14,6 +14,10 @@ export const ProfileInfoSection = styled.div`
     color: var(--dark-10);
   }
 
+  @media (max-width: 768px) {
+    margin-bottom: 16px; 
+  
+  }
 
 `;
 
@@ -22,7 +26,7 @@ export const PhraseContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  margin-top: 25px;
+  margin-top: 24px;
   border-radius: 10px;
   background: var(--bg-text);
   width: 544px;

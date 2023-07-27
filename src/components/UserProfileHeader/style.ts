@@ -27,6 +27,15 @@ export const ProfileHeader = styled.div`
     scale: 1.030;
   }
 
+  @media (max-width: 768px) {
+    > button {
+      width: 592px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+  
+  }
+
 `;
 
 
@@ -60,6 +69,11 @@ export const UserProfile = styled.div`
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    width: 592px;
+  
   }
 
 
