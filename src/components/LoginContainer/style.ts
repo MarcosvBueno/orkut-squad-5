@@ -9,6 +9,12 @@ const StyledContainer = styled.div`
     & > *:not(:last-child) {
         margin-right: 30px;
     }
+
+    @media (max-width: 768px) {
+        & > *:first-child {
+            display: none;
+        }
+    }
 `;
 
 export { StyledContainer };
