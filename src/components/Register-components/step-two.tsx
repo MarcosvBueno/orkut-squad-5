@@ -6,9 +6,10 @@ import logo from "../../assets/img/logo-orkut-simples.svg";
 interface Props {
   handleComplete: () => void;
   handlePrev: () => void;
+  registrationCompleted: boolean;
 }
 
-const Step2 = ({ handleComplete, handlePrev  }: Props) => {
+const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) => {
 
   const initialFormData = {
     selfDescription: '',
@@ -23,7 +24,7 @@ const Step2 = ({ handleComplete, handlePrev  }: Props) => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
-
+ 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
 
@@ -47,7 +48,7 @@ const Step2 = ({ handleComplete, handlePrev  }: Props) => {
 
 
     setFormData(initialFormData);
-
+   
     handleComplete();
   };
 
@@ -55,9 +56,12 @@ const Step2 = ({ handleComplete, handlePrev  }: Props) => {
     e.preventDefault();
     handlePrev();
   };
+  const handleLogin = () => {
+    handleComplete();
+    console.log('Navigating back to the login page.');
+  };
 
-
-
+ 
   const statusRelacionamentoOptions = [
     'solteiro(a)',
     'casado(a)',
@@ -139,11 +143,21 @@ const Step2 = ({ handleComplete, handlePrev  }: Props) => {
           onChange={handleChange}
           accept="image/*"
         />
+    {registrationCompleted ? (
+        <>
+          <p>Cadastro finalizado</p>
+          <button onClick={handleLogin}>Voltar para o login</button>
+        </>
+      ) : (
+        <>
+          <button type="submit">Finalizar Login</button>
+          <button className="btn-back" onClick={handleGoBack}>
+            Voltar para o cadastro
+          </button>
+        </>
+      )}
       
-      <button type="submit">Finalizar Login</button>
-      <button className="btn-back" onClick={handleGoBack}>Voltar para o cadastro</button> 
-      <button className="btn-back">Voltar para o Login</button> 
-
+     
     </Container>
   );
 };

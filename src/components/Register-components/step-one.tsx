@@ -2,7 +2,6 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Container } from '../../pages/Register/style';
 import logo from "../../assets/img/logo-orkut-simples.svg";
 
-
 interface Props {
   handleNext: () => void;
 }
@@ -20,6 +19,7 @@ const Step1 = ({ handleNext }: Props) => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -29,20 +29,33 @@ const Step1 = ({ handleNext }: Props) => {
     });
   };
 
+  const validateForm = () => {
+    const errors: Record<string, string> = {};
+    for (const field in formData) {
+      if (formData[field as keyof typeof formData].trim() === '') {
+        errors[field] = 'This field is required';
+      }
+    }
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!validateForm()) {
+      console.log('Form validation failed.');
+      return;
+    }
+
     console.log('Form submitted successfully.');
-
-
-    
     setFormData(initialFormData);
     handleNext();
   };
 
   return (
-    <Container  onSubmit={handleSubmit}>
-   <img src={logo} alt="Logo"/>
+    <Container onSubmit={handleSubmit}>
+      <img src={logo} alt="Logo" />
       <h2>Acesse o orkut</h2>
       <input
         type="text"
@@ -51,6 +64,7 @@ const Step1 = ({ handleNext }: Props) => {
         value={formData.name}
         onChange={handleChange}
       />
+      {formErrors.name && <span>{formErrors.name}</span>}
       <input
         type="text"
         name="email"
@@ -58,6 +72,7 @@ const Step1 = ({ handleNext }: Props) => {
         value={formData.email}
         onChange={handleChange}
       />
+      {formErrors.email && <span>{formErrors.email}</span>}
       <input
         type="date"
         name="date"
@@ -65,6 +80,7 @@ const Step1 = ({ handleNext }: Props) => {
         value={formData.date}
         onChange={handleChange}
       />
+      {formErrors.date && <span>{formErrors.date}</span>}
       <input
         type="text"
         name="city"
@@ -72,6 +88,7 @@ const Step1 = ({ handleNext }: Props) => {
         value={formData.city}
         onChange={handleChange}
       />
+      {formErrors.city && <span>{formErrors.city}</span>}
       <input
         type="text"
         name="state"
@@ -79,6 +96,7 @@ const Step1 = ({ handleNext }: Props) => {
         value={formData.state}
         onChange={handleChange}
       />
+      {formErrors.state && <span>{formErrors.state}</span>}
       <input
         type="text"
         name="country"
@@ -86,6 +104,7 @@ const Step1 = ({ handleNext }: Props) => {
         value={formData.country}
         onChange={handleChange}
       />
+      {formErrors.country && <span>{formErrors.country}</span>}
       <input
         type="password"
         name="password"
@@ -93,6 +112,7 @@ const Step1 = ({ handleNext }: Props) => {
         value={formData.password}
         onChange={handleChange}
       />
+      {formErrors.password && <span>{formErrors.password}</span>}
       <input
         type="password"
         name="confirmPassword"
@@ -100,10 +120,11 @@ const Step1 = ({ handleNext }: Props) => {
         value={formData.confirmPassword}
         onChange={handleChange}
       />
+      {formErrors.confirmPassword && <span>{formErrors.confirmPassword}</span>}
       <button type="submit">Criar conta</button>
-
     </Container>
   );
 };
 
 export default Step1;
+

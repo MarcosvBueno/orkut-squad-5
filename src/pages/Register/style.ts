@@ -51,6 +51,22 @@ export const Container = styled.form`
   select:not(:last-child) {
     margin-bottom: 15px;
   }
+  span{
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: var( --error-color);
+  }
+  p{
+    font-family: SF Pro Display;
+font-size: 18px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0px;
+    color: var(--success-color);
+    }
 
   button {
     display: block;
@@ -82,6 +98,7 @@ export const Container = styled.form`
       
 
     }
+
   }
   @media (max-width: 768px) {
     margin: 24px auto;
