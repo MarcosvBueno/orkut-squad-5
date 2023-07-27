@@ -31,11 +31,31 @@ const Step1 = ({ handleNext }: Props) => {
 
   const validateForm = () => {
     const errors: Record<string, string> = {};
+
+    // Check for empty fields
     for (const field in formData) {
       if (formData[field as keyof typeof formData].trim() === '') {
         errors[field] = 'This field is required';
       }
     }
+
+    // Check for email validation
+    if (formData.email.trim() !== '') {
+      if (!formData.email.includes('@')) {
+        errors.email = 'Invalid email address';
+      }
+    }
+    if (formData.password !== formData.confirmPassword) {
+      errors.confirmPassword = 'Passwords do not match';
+    }
+
+    // Check password length
+    if (formData.password.trim() !== '') {
+      if (formData.password.length < 6) {
+        errors.password = 'Password must be at least 6 characters long';
+      }
+    }
+
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -127,4 +147,3 @@ const Step1 = ({ handleNext }: Props) => {
 };
 
 export default Step1;
-

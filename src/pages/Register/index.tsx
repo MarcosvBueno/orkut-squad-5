@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Step1 from '../../components/Register-components/step-one';
 import Step2 from '../../components/Register-components/step-two';
-
+                                                                                                                                 
 function Register() {
   const [showStep2, setShowStep2] = useState(false);
   const [registrationCompleted, setRegistrationCompleted] = useState(false);

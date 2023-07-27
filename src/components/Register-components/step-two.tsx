@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Container } from '../../pages/Register/style';
 import logo from "../../assets/img/logo-orkut-simples.svg";
+import {useNavigate} from "react-router-dom";
 
 
 interface Props {
@@ -9,8 +10,9 @@ interface Props {
   registrationCompleted: boolean;
 }
 
-const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) => {
 
+const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) => {
+  const navigate = useNavigate();
   const initialFormData = {
     selfDescription: '',
     interests: '',
@@ -59,6 +61,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
   const handleLogin = () => {
     handleComplete();
     console.log('Navigating back to the login page.');
+    navigate('/')
   };
 
  
