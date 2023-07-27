@@ -11,20 +11,20 @@ export const HeaderWrapper = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1440px;
     width: 100%;
-    margin: 0 352px;
+    margin: 0 auto;
+    padding: 0 24px;
 
-    /* Estilos Responsivos para a div */
+    
     @media (max-width: 768px) {
-      margin: 0 24px;
-      justify-content: center; 
+      justify-content: center;
     }
   }
 
   nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 40px;
 
     a {
@@ -35,9 +35,9 @@ export const HeaderWrapper = styled.header`
       text-decoration: none;
     }
 
-   
+
     @media (max-width: 768px) {
-      display: none; 
+      display: none;
     }
   }
 `;
