@@ -1,31 +1,36 @@
 import styled from "styled-components";
 
-const LoginFormContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+const CreateAccountButton = styled.button`
+    background-color: var(--bg-text);
+    border: none;
+    border-radius: 8px;
+    color: var(--brand-color);
+    cursor: pointer;
+    flex-shrink: 0;
+    height: 51px;
+    padding: 10px 20px;
+    width: 336px;
 `;
 
-const LoginTitle = styled.h1`
-    font-size: 24px;
-    margin-bottom: 20px;
-`;
-
-const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
+const CustomCheckbox = styled.input`
+    left: 0;
+    opacity: 0;
+    position: absolute;
 `;
 
 const EmailInput = styled.input`
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    background-color: var(--bg-text);
+    border: none;
+    border-radius: 8px;
     margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+`;
+
+const ErrorContainer = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
 `;
 
@@ -35,13 +40,86 @@ const ErrorMessage = styled.p`
     margin-bottom: 10px;
 `;
 
-const LoginButton = styled.button`
-    background-color: var(--brand-color);
-    color: var(--dark-40);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+const ForgotPasswordLink = styled.a`
+    color: var(--brand-color);
+    margin-top: 10px;
+    text-decoration: none;
 `;
 
-export { LoginFormContainer, LoginTitle, Form, EmailInput, ErrorMessage, LoginButton };
+const Form = styled.form`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 384px;
+    min-height: 598px;
+    flex-shrink: 0;
+`;
+
+const LoginButton = styled.button`
+    background-color: var(--brand-color);
+    border: none;
+    border-radius: 8px;
+    color: var(--dark-40);
+    cursor: pointer;
+    flex-shrink: 0;
+    height: 51px;
+    padding: 10px 20px;
+    width: 336px;
+`;
+
+const LoginFormContainer = styled.div`
+    align-items: center;
+    background-color: var(--dark-40);
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 598px;
+    width: 384px;
+`;
+
+const LoginTitle = styled.h1`
+    color: var(--brand-color);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+`;
+
+const PasswordInput = styled.input`
+    background-color: var(--bg-text);
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+`;
+
+const RememberMeContainer = styled.div`
+    align-items: center;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    user-select: none;
+`;
+
+const RememberMeText = styled.span`
+    margin-left: 8px;
+`;
+
+export {
+    CreateAccountButton,
+    CustomCheckbox,
+    EmailInput,
+    ErrorContainer,
+    ErrorMessage,
+    ForgotPasswordLink,
+    Form,
+    LoginButton,
+    LoginFormContainer,
+    LoginTitle,
+    PasswordInput,
+    RememberMeContainer,
+    RememberMeText,
+};
