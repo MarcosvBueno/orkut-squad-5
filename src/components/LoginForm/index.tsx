@@ -1,27 +1,43 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import {
+    CreateAccountButton,
+    CustomCheckbox,
+    EmailInput,
+    ErrorContainer,
+    ErrorMessage,
+    ForgotPasswordLink,
+    Form,
+    LoginButton,
     LoginFormContainer,
     LoginTitle,
-    Form,
-    EmailInput,
-    ErrorMessage,
-    LoginButton,
+    PasswordInput,
+    RememberMeContainer,
+    RememberMeText,
 } from './style';
+
+import logo from "../../assets/img/logo-orkut-simples.svg";
 
 function LoginForm() {
     const [email, setEmail] = useState('');
-    const [error, setError] = useState('');
+    const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
     const [isLoginAttempted, setIsLoginAttempted] = useState(false);
+    const [rememberPassword, setRememberPassword] = useState(false);
 
     const handleLogin = () => {
         if (!email) {
-            setError('Campo de e-mail não pode ser vazio.');
+            setEmailError('Campo de e-mail não pode ser vazio.');
             setIsLoginAttempted(true);
         } else if (!isValidEmail(email)) {
-            setError('Formato de e-mail inválido.');
+            setEmailError('Formato de e-mail inválido.');
+            setIsLoginAttempted(true);
+        } else if (!password) {
+            setPasswordError('Campo de senha não pode ser vazio.');
             setIsLoginAttempted(true);
         } else {
-            setError('');
+            setEmailError('');
+            setPasswordError('');
             setIsLoginAttempted(false);
         }
     };
@@ -33,22 +49,75 @@ function LoginForm() {
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
         if (isLoginAttempted) {
-            setError('');
+            setEmailError('');
             setIsLoginAttempted(false);
         }
     };
 
+    const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value);
+        if (isLoginAttempted) {
+            setPasswordError('');
+            setIsLoginAttempted(false);
+        }
+    };
+
+    const handleRememberMeChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setRememberPassword(e.target.checked);
+    };
+
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        handleLogin();
+    };
+
     return (
         <LoginFormContainer>
+            <img src={logo} alt="Logo" />
             <LoginTitle>Acesse o Orkut</LoginTitle>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <EmailInput
+                    id="email"
                     type="text"
                     value={email}
                     onChange={handleEmailChange}
+                    placeholder="E-mail"
                 />
-                {isLoginAttempted && error && <ErrorMessage>{error}</ErrorMessage>}
-                <LoginButton type="button" onClick={handleLogin}>Entrar na conta</LoginButton> { }
+                {isLoginAttempted && !email && (
+                    <ErrorContainer>
+                        <ErrorMessage>{emailError}</ErrorMessage>
+                    </ErrorContainer>
+                )}
+                {isLoginAttempted && email && !isValidEmail(email) && (
+                    <ErrorContainer>
+                        <ErrorMessage>{emailError}</ErrorMessage>
+                    </ErrorContainer>
+                )}
+                <PasswordInput
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                    placeholder="Senha"
+                />
+                {isLoginAttempted && !password && (
+                    <ErrorContainer>
+                        <ErrorMessage>{passwordError}</ErrorMessage>
+                    </ErrorContainer>
+                )}
+                <RememberMeContainer>
+                    <CustomCheckbox
+                        type="checkbox"
+                        checked={rememberPassword}
+                        onChange={handleRememberMeChange}
+                    />
+                    <RememberMeText>Lembrar minha senha</RememberMeText>
+                </RememberMeContainer>
+                <LoginButton type="submit">Entrar na conta</LoginButton>
+                <CreateAccountButton type="button">Criar uma conta</CreateAccountButton>
+                <ForgotPasswordLink href="./" title="Esqueci a minha senha">
+                    Esqueci a minha senha
+                </ForgotPasswordLink>
             </Form>
         </LoginFormContainer>
     );
