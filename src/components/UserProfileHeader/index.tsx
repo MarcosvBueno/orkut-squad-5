@@ -26,7 +26,7 @@ const UserProfileHeader: React.FC<UserProfileHeaderProps> = ({
   return (
     <ProfileHeader>
       <UserProfile>
-        <img src={profileImage} alt="" />
+        <img src='https://i.imgur.com/jguCgC7.png' alt="" />
         <h2>{name}</h2>
         <p>{status}</p>
       </UserProfile>

@@ -6,6 +6,7 @@ export const ProfileInfoSection = styled.section`
   border-radius: 16px;
   background: var(--dark-30);
   padding: 24px;
+  width: 100%; 
 
   > h2 {
     font-size: 26px;
@@ -14,9 +15,10 @@ export const ProfileInfoSection = styled.section`
     color: var(--dark-10);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     margin-bottom: 16px; 
-  
+    width: 592px;
+    margin: 0 auto;
   }
 
 `;
@@ -49,6 +51,12 @@ export const PhraseContainer = styled.div`
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent var(--bg-text) transparent;
+  }
+
+  @media (max-width: 968px) {
+    &::before {
+      display: none;
+    }
   }
 `;
 
