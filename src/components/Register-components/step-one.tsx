@@ -21,6 +21,7 @@ const Step1 = ({ handleNext }: Props) => {
   const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
+  //This function is called whenever the user types into any of the input fields. It updates the 'formData' state by spreading the existing 'formData' and updating the field specified by 'name' with the value entered by the user.
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -28,6 +29,8 @@ const Step1 = ({ handleNext }: Props) => {
       [name]: value,
     });
   };
+  
+  //This function performs form validation by checking each field in 'formData'. It also checks email and password validation.
 
   const validateForm = () => {
     const errors: Record<string, string> = {};
@@ -59,6 +62,10 @@ const Step1 = ({ handleNext }: Props) => {
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
+
+  //It prevents the default form submission behavior using e.preventDefault
+  //Calls the 'validateForm' function to check the form for errors. If there are validation errors, it records a message and returns, preventing the submission of the form.
+  //If there are no validation errors, its logs a success message, resets the 'formData' state to initial values ​​and calls the 'handleNext' function.
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
