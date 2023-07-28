@@ -16,7 +16,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
   const initialFormData = {
     selfDescription: '',
     interests: '',
-    statusRelashionship: '',
+    statusRelationship: '',
     childrens: '',
     smoke: '',
     drinks: '',
@@ -104,7 +104,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
       />
       <select
   name="statusRelacionamento"
-  value={formData.statusRelacionamento} 
+  value={formData.statusRelationship} 
   onChange={handleChange}
 >
   <option value="">Relashionship status</option>
@@ -114,6 +114,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
     </option>
   ))}
 </select>
+
 
       <input
         type="text"
