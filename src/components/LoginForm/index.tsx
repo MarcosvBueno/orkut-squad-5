@@ -1,7 +1,8 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import {
     CreateAccountButton,
-    CustomCheckbox,
+    CustomCheckboxInput,
+    CustomCheckboxLabel,
     EmailInput,
     ErrorContainer,
     ErrorMessage,
@@ -24,7 +25,6 @@ function LoginForm() {
     const [passwordError, setPasswordError] = useState('');
     const [isLoginAttempted, setIsLoginAttempted] = useState(false);
     const [rememberPassword, setRememberPassword] = useState(false);
-
 
     const handleLogin = () => {
         if (!email) {
@@ -72,7 +72,6 @@ function LoginForm() {
         handleLogin();
     };
 
-
     return (
         <LoginFormContainer>
             <img src={logo} alt="Logo" />
@@ -108,12 +107,16 @@ function LoginForm() {
                     </ErrorContainer>
                 )}
                 <RememberMeContainer>
-                    <CustomCheckbox
+                    <CustomCheckboxInput
+                        id="rememberMe"
                         type="checkbox"
                         checked={rememberPassword}
                         onChange={handleRememberMeChange}
                     />
-                    <RememberMeText>Lembrar minha senha</RememberMeText>
+                    <CustomCheckboxLabel />
+                    <label htmlFor="rememberMe">
+                        <RememberMeText>Lembrar minha senha</RememberMeText>
+                    </label>
                 </RememberMeContainer>
                 <LoginButton type="submit">Entrar na conta</LoginButton>
                 <CreateAccountButton type="button">Criar uma conta</CreateAccountButton>

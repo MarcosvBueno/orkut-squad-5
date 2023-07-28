@@ -12,10 +12,47 @@ const CreateAccountButton = styled.button`
     width: 336px;
 `;
 
-const CustomCheckbox = styled.input`
-    left: 0;
+const CustomCheckboxContainer = styled.div`
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    cursor: pointer;
+    user-select: none;
+`;
+
+const CustomCheckboxInput = styled.input.attrs({ type: "checkbox" })`
     opacity: 0;
-    position: absolute;
+    width: 0;
+    height: 0;
+`;
+
+const CustomCheckboxLabel = styled.label`
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    background: var(--bg-text);
+    margin-right: 8px;
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 4px;
+        background-color: var(--brand-color);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    ${CustomCheckboxInput}:checked + &::before {
+        opacity: 1;
+    }
 `;
 
 const EmailInput = styled.input`
@@ -110,7 +147,9 @@ const RememberMeText = styled.span`
 
 export {
     CreateAccountButton,
-    CustomCheckbox,
+    CustomCheckboxContainer,
+    CustomCheckboxInput,
+    CustomCheckboxLabel,
     EmailInput,
     ErrorContainer,
     ErrorMessage,
