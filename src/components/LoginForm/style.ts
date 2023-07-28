@@ -143,6 +143,11 @@ const RememberMeContainer = styled.div`
 
 const RememberMeText = styled.span`
     margin-left: 8px;
+    color: #868686;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 `;
 
 export {
