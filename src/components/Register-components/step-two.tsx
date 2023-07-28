@@ -150,14 +150,17 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
         onChange={handleChange}
       />
 
-      
-        <input
-          type="file"
-          name="profilePhoto"
-          placeholder="Profile Photo"
-          onChange={handleChange}
-          accept="image/*"
-        />
+    
+      <input
+        type="file"
+        id="profilePhoto"
+        name="profilePhoto"
+        accept="image/*"
+        onChange={handleChange}
+      />
+        <label htmlFor="profilePhoto">Upload Profile Photo</label>
+
+
     {registrationCompleted ? (
         <>
           <p>Cadastro finalizado</p>

@@ -22,6 +22,12 @@ export const Container = styled.form`
 
     margin-bottom: 53px; 
   }
+   label{
+    font-family: SF Pro Display;
+    font-size: 16px;
+    color: var(--brand-color);
+    
+   }
 
   img {
     width: 32px; 
