@@ -11,6 +11,7 @@ import {
     LoginButton,
     LoginFormContainer,
     LoginTitle,
+    LogoImage,
     PasswordInput,
     RememberMeContainer,
     RememberMeText,
@@ -74,7 +75,7 @@ function LoginForm() {
 
     return (
         <LoginFormContainer>
-            <img src={logo} alt="Logo" />
+            <LogoImage src={logo} alt="Logo" />
             <LoginTitle>Acesse o Orkut</LoginTitle>
             <Form onSubmit={handleSubmit}>
                 <EmailInput

@@ -7,9 +7,14 @@ const CreateAccountButton = styled.button`
     color: var(--brand-color);
     cursor: pointer;
     flex-shrink: 0;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
     height: 51px;
     padding: 10px 20px;
     width: 336px;
+    margin-top: 20px;
 `;
 
 const CustomCheckboxContainer = styled.div`
@@ -18,6 +23,7 @@ const CustomCheckboxContainer = styled.div`
     color: var(--text-color);
     cursor: pointer;
     user-select: none;
+    margin-top: 20px;
 `;
 
 const CustomCheckboxInput = styled.input.attrs({ type: "checkbox" })`
@@ -59,7 +65,7 @@ const EmailInput = styled.input`
     background-color: var(--bg-text);
     border: none;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding: 10px;
     width: 100%;
 `;
@@ -69,6 +75,7 @@ const ErrorContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    margin-bottom: 20px;
 `;
 
 const ErrorMessage = styled.p`
@@ -79,8 +86,12 @@ const ErrorMessage = styled.p`
 
 const ForgotPasswordLink = styled.a`
     color: var(--brand-color);
-    margin-top: 10px;
-    text-decoration: none;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 20px;
+    text-decoration-line: underline;
 `;
 
 const Form = styled.form`
@@ -100,9 +111,14 @@ const LoginButton = styled.button`
     color: var(--dark-40);
     cursor: pointer;
     flex-shrink: 0;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
     height: 51px;
     padding: 10px 20px;
     width: 336px;
+    margin-top: 20px;
 `;
 
 const LoginFormContainer = styled.div`
@@ -114,21 +130,29 @@ const LoginFormContainer = styled.div`
     flex-direction: column;
     min-height: 598px;
     width: 384px;
+    justify-content: center;
+    position: relative;
 `;
 
 const LoginTitle = styled.h1`
     color: var(--brand-color);
-    font-size: 20px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-bottom: 20px;
+`;
+
+const LogoImage = styled.img`
+    margin-top: 20px;
+    margin-bottom: 20px;
 `;
 
 const PasswordInput = styled.input`
     background-color: var(--bg-text);
     border: none;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding: 10px;
     width: 100%;
 `;
@@ -139,6 +163,7 @@ const RememberMeContainer = styled.div`
     cursor: pointer;
     display: flex;
     user-select: none;
+    margin-top: 20px;
 `;
 
 const RememberMeText = styled.span`
@@ -163,6 +188,7 @@ export {
     LoginButton,
     LoginFormContainer,
     LoginTitle,
+    LogoImage,
     PasswordInput,
     RememberMeContainer,
     RememberMeText,
