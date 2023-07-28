@@ -90,7 +90,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
       <h2>Acesse o orkut</h2>
       <input
         type="text"
-        name="SelfDescription"
+        name="selfDescription"
         placeholder="Self Description"
         value={formData.selfDescription}
         onChange={handleChange}
@@ -103,17 +103,18 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
         onChange={handleChange}
       />
       <select
-        name="statusRelacionamento"
-        value={formData.statusRelashionship}
-        onChange={handleChange}
-      >
-        <option value="">Relashionship status</option>
-        {statusRelacionamentoOptions.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
+  name="statusRelacionamento"
+  value={formData.statusRelacionamento} 
+  onChange={handleChange}
+>
+  <option value="">Relashionship status</option>
+  {statusRelacionamentoOptions.map((option) => (
+    <option key={option} value={option}>
+      {option}
+    </option>
+  ))}
+</select>
+
       <input
         type="text"
         name="childrens"
