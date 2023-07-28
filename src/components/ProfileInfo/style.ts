@@ -6,7 +6,8 @@ export const ProfileInfoSection = styled.section`
   border-radius: 16px;
   background: var(--dark-30);
   padding: 24px;
-  width: 100%; 
+  display: flex;
+  flex-direction: column;
 
   > h2 {
     font-size: 26px;
@@ -17,10 +18,22 @@ export const ProfileInfoSection = styled.section`
 
   @media (max-width: 968px) {
     margin-bottom: 16px; 
-    width: 592px;
+    width: 100%;
     margin: 0 auto;
   }
 
+  @media (max-width: 560px) {
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      margin: 0 auto;
+      
+      > h2{
+        font-size: 20px;
+      }
+
+     
+    }
 `;
 
 export const PhraseContainer = styled.div`
@@ -31,8 +44,9 @@ export const PhraseContainer = styled.div`
   margin-top: 24px;
   border-radius: 10px;
   background: var(--bg-text);
-  width: 544px;
-  height: 39.365px;
+  width: 100%;
+  height: 40px;
+  padding: 12px;
 
   > p {
     font-size: 16px;
@@ -58,6 +72,17 @@ export const PhraseContainer = styled.div`
       display: none;
     }
   }
+  @media (max-width: 560px) {
+      width: 100%;
+        margin-bottom: 40px;
+        margin-top: 32px;
+
+
+      > p {
+        font-size: 12px;
+      }
+    
+    }
 `;
 
 
@@ -89,6 +114,25 @@ export const QualitiesContainer = styled.div`
   margin-bottom: 8px;
   }
 
+  @media (max-width: 560px) {
+        width: 100%;
+        justify-content: space-between;
+        margin: 0 auto;
+        margin-bottom: 40px;
+
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 6px;
+        }
+
+        h3{
+          font-size: 16px;
+        }
+
+    
+    }
+  
 
 `;
 
@@ -104,6 +148,11 @@ export const StarContainer = styled.div`
     font-style: normal;
     font-weight: 400;
     color: var(--dark-10);
+  }
+
+  @media (max-width: 590px) {
+    gap: 0px
+  
   }
 `;
 
@@ -187,4 +236,14 @@ export const UserInterests=  styled.section`
   button:hover {
     scale: 1.1;
   }
+
+  @media (max-width: 590px) {
+      width:100%;
+      
+       div p:nth-child(n+3) {
+        display: none;
+      }
+
+    }
+  
 `;

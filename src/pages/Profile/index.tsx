@@ -1,6 +1,6 @@
 import profileImage from '../../assets/img/profile-image.png';
 import SearchIcon from '../../assets/img/Search.svg';
-import { Container,InputContainer,ContainerFAndC} from './style';
+import { Container,InputContainer} from './style';
 import UserProfileHeader from '../../components/UserProfileHeader';
 import ListOfFriends from '../../components/ListOfFriends';
 import ListOfCommunity from '../../components/ListOfCommunity';
@@ -8,13 +8,13 @@ import ProfileInfo from '../../components/ProfileInfo';
 function Profile() {
   return ( 
     <Container>
-      <div className='div0'>
+      <div className='inputDiv'>
       <InputContainer>
       <img src={SearchIcon} alt="" />
       <input type="text" placeholder='Pesquisar no Orkut' />
       </InputContainer>
       </div>
-      <div className='div1'>
+      <div className='profileHeaderDiv'>
       <UserProfileHeader
         profileImage={profileImage}
         name="Iuri Silva"
@@ -23,14 +23,14 @@ function Profile() {
         buttonContent="Editar meu perfil"
       />
       </div>
-      <div className='div2'>
+      <div className='ProfileInfoDiv'>
       <ProfileInfo /> 
       </div>
 
-      <div className='div3'>
+      <div className='ListFriendsDiv'>
       <ListOfFriends />
       </div>
-      <div className='div4'>
+      <div className='ListCommunityDiv'>
       <ListOfCommunity />
       </div>
       

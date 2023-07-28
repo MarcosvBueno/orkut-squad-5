@@ -7,26 +7,26 @@ export const Container = styled.main`
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 80px;
-  margin-bottom:24px;
+  margin-bottom:20px;
   display: grid;
   grid-template-columns: 280px 592px 280px; 
   grid-template-rows: 411px 411px ;
   grid-gap: 32px;
   
-  & .div1 {
+  & .profileHeaderDiv{
     grid-row: 1 ; 
   }
 
-  & .div2 {
+  & .ProfileInfoDiv {
     grid-row: 1 / 3;
   }
 
-  & .div3 {
+  & .ListFriendsDiv {
     grid-row: 1 ;
     
   }
 
-  & .div4 {
+  & .ListCommunityDiv {
     grid-row: 2 ;
     grid-column: 3; 
   }
@@ -38,29 +38,54 @@ export const Container = styled.main`
     align-items: center;
     grid-template-columns: 1fr; 
     grid-template-rows: auto; 
-    margin-top: 30px;
-    & .div0{
+    padding: 0 24px;
+
+    & .inputDiv{
       grid-row: 1;
     }
 
-    & .div1 {
+    & .profileHeaderDiv{
       grid-row: 2;
     }
 
-    & .div2 {
+    & .ProfileInfoDiv {
       grid-row: 4;
     }
 
-    & .div3 {
+    & .ListFriendsDiv {
       grid-row: 3;
       grid-column: 1;
     }
 
-    & .div4 {
+    & .ListCommunityDiv {
       grid-row: 5;
       grid-column: 1; 
     }
   }
+
+  @media (max-width: 768px) {
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    margin-top: 30px;
+    margin-bottom: 24px;
+    & .profileHeaderDiv {
+      margin: 0 auto;
+      width: 100%;
+    
+  }
+  }
+
+  @media (max-width: 560px) {
+    margin-bottom: 54px;
+    & .profileHeaderDiv {
+      width: 100%;
+    }
+  }
+
 `;
 
 export const InputContainer = styled.div`
@@ -93,74 +118,24 @@ export const InputContainer = styled.div`
  }
 
  @media (max-width: 768px) {
-  display:flex;
-
-  input{
-    width: 592px;
-    
-  }
-    img{
-      left: 100px;
-      
-    }
-
-  }
-
-`;
-
-export const ContainerFAndC = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  
-
-  > div > div{
     display: flex;
-    flex-direction: column; 
-    gap: 24px;
-    width: 280px;
-    height: 411px;
-    background-color: var(--dark-30);
-    border-radius: 16px;
-    padding: 24px;
-  }
-  
-  img {
-    width: 56px;
-    height: 56px;
-    
-  }
-
-  h3 {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    color: var(--dark-10);
-  }
-
-  button {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    color: var(--brand-color);
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-
-  button:hover {
-    scale: 1.1;
-  }
-
-  @media (max-width: 768px) { 
-
-   >  div {
-      width: 592px;
-      justify-content: center;
-      padding: 0px 40px;
+    padding: 0 5px;
+    input{
+      width: 100%;
       
     }
-  
+      img{
+        left: 13px;
+        
+      }
+
   }
+  @media (max-width: 560px) {
+    
+      width: 100%;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 0 5px;
+    }
+
 `;
