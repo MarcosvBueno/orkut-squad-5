@@ -2,20 +2,20 @@ import { styled } from "styled-components";
 
 export const FooterContainer = styled.footer`
     background-color: var(--dark-30);
+    bottom: 0;
     height: 48px;
-    text-align: center;
+    left: 0;
     padding: 10px;
     position: fixed;
-    bottom: 0;
-    left: 0;
+    text-align: center;
     width: 100%;
 
     h2 {
+        color: var(--brand-color);
         font-size: 18px;
         font-weight: 400;
-        line-height: 24px;
         letter-spacing: 0px;
-        color: var(--brand-color);
+        line-height: 24px;
     }
 
     @media (max-width: 768px) {
