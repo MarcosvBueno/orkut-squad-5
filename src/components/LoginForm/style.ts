@@ -51,7 +51,9 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     padding: 20px;
-    width: 300px;
+    width: 384px;
+    min-height: 598px;
+    flex-shrink: 0;
 `;
 
 const LoginButton = styled.button`
@@ -70,9 +72,11 @@ const LoginFormContainer = styled.div`
     align-items: center;
     background-color: var(--dark-40);
     border: none;
-    border-radius: 8px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
+    min-height: 598px;
+    width: 384px;
 `;
 
 const LoginTitle = styled.h1`
