@@ -36,6 +36,9 @@ export const ProfileHeader = styled.div`
       justify-content: center;
       align-items: center;
       margin-bottom: 16px;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
     }
   
   }
@@ -76,8 +79,9 @@ export const UserProfile = styled.div`
     font-weight: 400;
   }
 
-  @media (max-width: 968px) {
-    width: 592px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
     
     > h2 {
       font-size: 32px;
