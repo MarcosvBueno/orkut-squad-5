@@ -5,10 +5,10 @@ export const ProfileHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
-  
+
 
  > button {
-  width: 280px;
+  width: 100%;
   height: 56px;
   border-radius: 16px;
   border: none;
@@ -30,9 +30,9 @@ export const ProfileHeader = styled.div`
   @media (max-width: 968px) {
      justify-content: center;
      align-items: center;
-
+    
     > button {
-      width: 592px;
+      width: 100%;
       justify-content: center;
       align-items: center;
       margin-bottom: 16px;
@@ -79,6 +79,13 @@ export const UserProfile = styled.div`
     font-weight: 400;
   }
 
+  @media (max-width: 968px) {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -91,7 +98,7 @@ export const UserProfile = styled.div`
       font-size: 20px;
     }
   
-  }
+  
 
 
 `;

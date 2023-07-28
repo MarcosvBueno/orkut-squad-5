@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const FriendList = styled.div`
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 100%;
   background-color: var(--dark-30);
   border-radius: 16px;
   padding: 24px;
@@ -52,8 +52,9 @@ export const FriendList = styled.div`
     margin-bottom: 4px;
   }
 
+
   @media (max-width: 968px) {
-    width: 592px;
+    width: 100%;
     justify-content: center;
     margin: 0 auto;
     
@@ -65,6 +66,20 @@ export const FriendList = styled.div`
       font-size: 18px;
     }
   }
- 
+
+  @media (max-width: 560px) {
+      width: 100%;
+      justify-content: center;
+      margin: 0 auto;
+      
+      h3 {
+        font-size: 16px;
+      }
+
+      button{
+        font-size: 18px;
+      }
+    }
+
 
 `;

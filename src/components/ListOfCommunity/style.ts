@@ -52,9 +52,10 @@ display: flex;
   }
 
   @media (max-width: 968px) {
-    width: 592px;
+    width: 100%;
     justify-content: center;
     margin: 0 auto;
+    margin-bottom: 30px;
     
     h3 {
       font-size: 20px;
@@ -64,5 +65,19 @@ display: flex;
       font-size: 18px;
     }
   }
+
+  @media (max-width: 560px) {
+      width: 100%;
+      justify-content: center;
+      margin: 0 auto;
+      
+      h3 {
+        font-size: 16px;
+      }
+
+      button{
+        font-size: 18px;
+      }
+    }
 
 `;

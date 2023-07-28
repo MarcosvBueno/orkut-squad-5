@@ -33,7 +33,6 @@ function ProfileInfo() {
             <img src={smileyIcon} alt="" />
             <img src={smileyIcon} alt="" />
           </div>
-
           <div>
             <h3>Legal</h3>
             <img src={thumbsUpIcon} alt="" />
