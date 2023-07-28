@@ -25,6 +25,7 @@ function LoginForm() {
     const [isLoginAttempted, setIsLoginAttempted] = useState(false);
     const [rememberPassword, setRememberPassword] = useState(false);
 
+
     const handleLogin = () => {
         if (!email) {
             setEmailError('Campo de e-mail não pode ser vazio.');
@@ -70,6 +71,7 @@ function LoginForm() {
         e.preventDefault();
         handleLogin();
     };
+
 
     return (
         <LoginFormContainer>
