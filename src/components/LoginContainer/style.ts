@@ -6,13 +6,19 @@ const StyledContainer = styled.div`
     flex-direction: row;
     justify-content: center;
 
-    & > *:not(:last-child) {
-        margin-right: 30px;
+    & > * {
+        margin-right: 20px;
+        margin-top: 100px;
     }
 
-    @media (max-width: 768px) {
-        & > *:first-child {
-            display: none;
+    & > *:last-child {
+        margin-right: 0;
+    }
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        & > * {
+            margin-right: 0;
         }
     }
 `;
