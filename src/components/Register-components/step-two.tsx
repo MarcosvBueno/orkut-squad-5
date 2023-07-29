@@ -91,14 +91,14 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
       <input
         type="text"
         name="selfDescription"
-        placeholder="Self Description"
+        placeholder="Quem sou eu?"
         value={formData.selfDescription}
         onChange={handleChange}
       />
       <input
         type="text"
         name="interests"
-        placeholder="Interests"
+        placeholder="Interesses no Orkut"
         value={formData.interests}
         onChange={handleChange}
       />
@@ -107,7 +107,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
   value={formData.statusRelationship} 
   onChange={handleChange}
 >
-  <option value="">Relashionship status</option>
+  <option value="">Status de  Relacionamento</option>
   {statusRelacionamentoOptions.map((option) => (
     <option key={option} value={option}>
       {option}
@@ -119,28 +119,28 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
       <input
         type="text"
         name="childrens"
-        placeholder="Childrens"
+        placeholder="Filhos"
         value={formData.childrens}
         onChange={handleChange}
       />
       <input
         type="text"
         name="smoke"
-        placeholder="Smoking habits"
+        placeholder="Hábitos de fumo"
         value={formData.smoke}
         onChange={handleChange}
       />
       <input
         type="text"
         name="drinks"
-        placeholder="Drinks habits"
+        placeholder="Hábitos de beber"
         value={formData.drinks}
         onChange={handleChange}
       />
       <input
         type="text"
         name="songs"
-        placeholder="Favorites songs"
+        placeholder="Músicas favoritas"
         value={formData.songs}
         onChange={handleChange}
       />
@@ -160,7 +160,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
         accept="image/*"
         onChange={handleChange}
       />
-        <label htmlFor="profilePhoto">Upload Profile Photo</label>
+        <label htmlFor="profilePhoto">Upload Foto de perfil</label>
 
 
     {registrationCompleted ? (

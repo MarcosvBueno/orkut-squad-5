@@ -6,8 +6,19 @@ interface Props {
   handleNext: () => void;
 }
 
+interface FormData {
+  name: string;
+  email: string;
+  date: string;
+  city: string;
+  state: string;
+  country: string;
+  password: string;
+  confirmPassword: string;
+}
+
 const Step1 = ({ handleNext }: Props) => {
-  const initialFormData = {
+  const initialFormData: FormData = {
     name: '',
     email: '',
     date: '',
@@ -18,10 +29,22 @@ const Step1 = ({ handleNext }: Props) => {
     confirmPassword: '',
   };
 
-  const [formData, setFormData] = useState(initialFormData);
+  const [formData, setFormData] = useState<FormData>(initialFormData);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
-  //This function is called whenever the user types into any of the input fields. It updates the 'formData' state by spreading the existing 'formData' and updating the field specified by 'name' with the value entered by the user.
+  const fieldErrorMessages = {
+    name: 'O campo de nome precisa ser preenchido',
+    email: 'O campo de email precisa ser preenchido e deve ser um endereço de email válido',
+    date: 'O campo de data de aniversário precisa ser preenchido',
+    city: 'O campo de cidade precisa ser preenchido',
+    state: 'O campo de estado precisa ser preenchido',
+    country: 'O campo de país precisa ser preenchido',
+    password: 'A senha precisa ser preenchida e deve ter pelo menos 6 caracteres',
+    confirmPassword: 'As senhas não coincidem',
+  };
+  
+  //The handleChange function is called whenever the user types into any of the form's input fields. It updates the formData state through the setFormData hook, scattering the existing values ​​and updating the field specified by the name attribute with the value entered by the user.
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -29,40 +52,38 @@ const Step1 = ({ handleNext }: Props) => {
       [name]: value,
     });
   };
-  
-  //This function performs form validation by checking each field in 'formData'. It also checks email and password validation.
 
   const validateForm = () => {
     const errors: Record<string, string> = {};
 
     // Check for empty fields
     for (const field in formData) {
-      if (formData[field as keyof typeof formData].trim() === '') {
-        errors[field] = 'This field is required';
+      if (formData[field as keyof FormData].trim() === '') {
+        errors[field] = fieldErrorMessages[field as keyof FormData];
       }
     }
 
     // Check for email validation
     if (formData.email.trim() !== '') {
       if (!formData.email.includes('@')) {
-        errors.email = 'Invalid email address';
+        errors.email = 'Endereço de email inválido';
       }
     }
+
     if (formData.password !== formData.confirmPassword) {
-      errors.confirmPassword = 'Passwords do not match';
+      errors.confirmPassword = 'As senhas não coincidem';
     }
 
     // Check password length
     if (formData.password.trim() !== '') {
       if (formData.password.length < 6) {
-        errors.password = 'Password must be at least 6 characters long';
+        errors.password = 'A senha deve ter pelo menos 6 caracteres';
       }
     }
 
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
-
   //It prevents the default form submission behavior using e.preventDefault
   //Calls the 'validateForm' function to check the form for errors. If there are validation errors, it records a message and returns, preventing the submission of the form.
   //If there are no validation errors, its logs a success message, resets the 'formData' state to initial values ​​and calls the 'handleNext' function.
@@ -87,7 +108,7 @@ const Step1 = ({ handleNext }: Props) => {
       <input
         type="text"
         name="name"
-        placeholder="Name"
+        placeholder="Nome"
         value={formData.name}
         onChange={handleChange}
       />
@@ -103,7 +124,7 @@ const Step1 = ({ handleNext }: Props) => {
       <input
         type="date"
         name="date"
-        placeholder="Date of birth"
+        placeholder="Data de aniversário"
         value={formData.date}
         onChange={handleChange}
       />
@@ -111,7 +132,7 @@ const Step1 = ({ handleNext }: Props) => {
       <input
         type="text"
         name="city"
-        placeholder="City"
+        placeholder="Cidade"
         value={formData.city}
         onChange={handleChange}
       />
@@ -119,7 +140,7 @@ const Step1 = ({ handleNext }: Props) => {
       <input
         type="text"
         name="state"
-        placeholder="State"
+        placeholder="Estado"
         value={formData.state}
         onChange={handleChange}
       />
@@ -127,7 +148,7 @@ const Step1 = ({ handleNext }: Props) => {
       <input
         type="text"
         name="country"
-        placeholder="Country"
+        placeholder="País"
         value={formData.country}
         onChange={handleChange}
       />
@@ -135,7 +156,7 @@ const Step1 = ({ handleNext }: Props) => {
       <input
         type="password"
         name="password"
-        placeholder="Password"
+        placeholder="Senha"
         value={formData.password}
         onChange={handleChange}
       />
@@ -143,7 +164,7 @@ const Step1 = ({ handleNext }: Props) => {
       <input
         type="password"
         name="confirmPassword"
-        placeholder="Confirm Password"
+        placeholder="Confirme Senha"
         value={formData.confirmPassword}
         onChange={handleChange}
       />

@@ -59,7 +59,7 @@ export const Container = styled.form`
   }
   span{
     font-family: SF Pro Display;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0px;
