@@ -16,7 +16,7 @@ interface UserProviderProps {
 
 export const UserProvider = (props: UserProviderProps) => {
   // State to hold the user login status
-  const [userIsLogged, setUserIsLogged] = useState(true);
+  const [userIsLogged, setUserIsLogged] = useState(false);
   
   return (
     // Providing the state and setter to the context value
