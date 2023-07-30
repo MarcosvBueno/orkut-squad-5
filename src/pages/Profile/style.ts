@@ -9,8 +9,8 @@ export const Container = styled.main`
   margin-top: 80px;
   margin-bottom:20px;
   display: grid;
-  grid-template-columns: 280px 592px 280px; 
-  grid-template-rows: 411px 411px ;
+  grid-template-columns: 280px 1fr 280px;
+  grid-template-rows: auto auto 1fr auto;
   grid-gap: 32px;
   
   & .profileHeaderDiv{
@@ -29,6 +29,10 @@ export const Container = styled.main`
   & .ListCommunityDiv {
     grid-row: 2 ;
     grid-column: 3; 
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns:280px 1fr 1fr; 
   }
 
 

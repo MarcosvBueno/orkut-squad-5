@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const CommunityList = styled.div`
 
-display: flex;
+  display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 100%;
   background-color: var(--dark-30);
   border-radius: 16px;
   padding: 24px;
@@ -35,6 +35,7 @@ display: flex;
 
   > div {
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
