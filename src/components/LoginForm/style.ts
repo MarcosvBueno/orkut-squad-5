@@ -33,10 +33,12 @@ const CustomCheckboxInput = styled.input.attrs({ type: "checkbox" })`
 `;
 
 const CustomCheckboxLabel = styled.label`
+    align-items: center;
     background: var(--bg-text);
     border: 1px solid #dcdcdc;
     border-radius: 6px;
     cursor: pointer;
+    display: flex;
     height: 20px;
     left: -10px;
     margin-right: -5px;
@@ -173,9 +175,8 @@ const RememberMeContainer = styled.div`
     color: var(--text-color);
     cursor: pointer;
     display: flex;
-    margin-top: 20px;
-    margin-top: 20px;
     margin-left: 10px;
+    margin-top: 20px;
     user-select: none;
 `;
 
@@ -184,7 +185,7 @@ const RememberMeText = styled.span`
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 20px;
     margin-left: 8px;
 `;
 
