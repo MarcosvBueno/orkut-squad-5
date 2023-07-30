@@ -1,6 +1,6 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { UserContext } from '../../context/user-context';
 import {
     CreateAccountButton,
     CustomCheckboxInput,
@@ -30,6 +30,8 @@ function LoginForm() {
     const [rememberPassword, setRememberPassword] = useState(false);
     const [loginError, setLoginError] = useState('');
 
+    const { setUserIsLogged } = useContext(UserContext)!;
+
     const handleLogin = () => {
         if (!email || !password || !isValidEmail(email)) {
             setIsLoginAttempted(true);
@@ -41,6 +43,7 @@ function LoginForm() {
             setEmailError('');
             setPasswordError('');
             setLoginError('');
+            setUserIsLogged(true);
             navigate('/profile');
         }
     };
@@ -74,6 +77,7 @@ function LoginForm() {
 
     const handleCreateProfile = () => {
         navigate('/register');
+        
     };
 
     return (
