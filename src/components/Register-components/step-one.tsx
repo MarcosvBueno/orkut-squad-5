@@ -42,8 +42,8 @@ const Step1 = ({ handleNext }: Props) => {
     password: 'A senha precisa ser preenchida e deve ter pelo menos 6 caracteres',
     confirmPassword: 'As senhas não coincidem',
   };
-  
-  //The handleChange function is called whenever the user types into any of the form's input fields. It updates the formData state through the setFormData hook, scattering the existing values ​​and updating the field specified by the name attribute with the value entered by the user.
+
+//The handleChange function is called whenever the user types into any of the form's input fields. It updates the formData state through the setFormData hook, scattering the existing values ​​and updating the field specified by the name attribute with the value entered by the user.
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

@@ -3,35 +3,35 @@ import styled from "styled-components";
 export const Details = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem; 
   justify-content: center;
   align-items: left;
-  @media (max-width: 768px) {
-    width: 100%;
+  @media (max-width: 48rem) {
+    width: 100%; 
   }
 
   > div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 1rem; 
   }
 
   h2 {
     color: var(--dark-20);
-    font-size: 16px;
+    font-size: 1rem; 
     font-style: normal;
     font-weight: 400;
   }
 
   p {
     color: var(--dark-10);
-    font-size: 16px;
+    font-size: 1rem; 
     font-style: normal;
     font-weight: 400;
-    border-radius: 30px;
-    border: 1px solid var(--brand-color);
-    padding: 2px 16px;
+    border-radius: 1.875rem; 
+    border: 0.0625rem solid var(--brand-color); 
+    padding: 0.125rem 1rem;
     transition: all 0.2s ease-in-out;
   }
 
@@ -43,7 +43,7 @@ export const Details = styled.section`
   button {
     border: none;
     background: none;
-    font-size: 14px;
+    font-size: 0.875rem; 
     font-style: normal;
     font-weight: 500;
     color: var(--brand-color);
@@ -52,11 +52,13 @@ export const Details = styled.section`
   }
 
   button:hover {
-    scale: 1.1;
+    transform: scale(1.1);
   }
 `;
+
 export const ParagraphHiddenInMobile = styled.p`
-  @media (max-width: 768px) {
-    display: none;
+  @media (max-width: 48rem) {
+    display: none; 
   }
 `;
+

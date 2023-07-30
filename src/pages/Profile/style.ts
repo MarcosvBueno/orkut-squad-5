@@ -1,17 +1,16 @@
 import styled from 'styled-components'; 
 
-
 export const Container = styled.main`
-  max-width: 1215px;
-  margin : 0 auto;
+  max-width: 75.9375rem;
+  margin: 0 auto;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 80px;
-  margin-bottom:20px;
+  margin-top: 5rem;
+  margin-bottom: 1.25rem;
   display: grid;
-  grid-template-columns: 280px 1fr 280px;
+  grid-template-columns: 17.5rem 1fr 17.5rem;
   grid-template-rows: auto auto 1fr auto;
-  grid-gap: 32px;
+  grid-gap: 2rem;
   
   & .profileHeaderDiv{
     grid-row: 1 ; 
@@ -31,18 +30,17 @@ export const Container = styled.main`
     grid-column: 3; 
   }
 
-  @media (max-width: 1024px) {
-    grid-template-columns:280px 1fr 1fr; 
+  @media (max-width: 64rem) {
+    grid-template-columns: 17.5rem 1fr 1fr; 
   }
 
-
-  @media (max-width: 968px) {
+  @media (max-width: 60.5rem) {
     overflow-x: hidden;
     justify-content: center;
     align-items: center;
     grid-template-columns: 1fr; 
     grid-template-rows: auto; 
-    padding: 0 24px;
+    padding: 0 1.5rem;
 
     & .inputDiv{
       grid-row: 1;
@@ -67,29 +65,29 @@ export const Container = styled.main`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
     overflow-x: hidden;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    padding: 0 24px;
-    margin-top: 30px;
-    margin-bottom: 24px;
+    padding: 0 1.5rem;
+    margin-top: 3.75rem;
+    margin-bottom: 3rem;
+
     & .profileHeaderDiv {
       margin: 0 auto;
-      width: 100%;
-    
-  }
-  }
-
-  @media (max-width: 560px) {
-    margin-bottom: 54px;
-    & .profileHeaderDiv {
       width: 100%;
     }
   }
 
+  @media (max-width: 35rem) {
+    margin-bottom: 3.375rem;
+
+    & .profileHeaderDiv {
+      width: 100%;
+    }
+  }
 `;
 
 export const InputContainer = styled.div`
@@ -98,48 +96,44 @@ export const InputContainer = styled.div`
   justify-content: center;
   align-items: center;  
   position: relative; 
-  display:none;
-  margin-bottom: 15px;
- 
- input{
-  width: 320px;
-  height: 44px;
-  border-radius: 8px;
-  background: var(--dark-30);
-  padding: 0 45px;
-  border: none;
+  margin-bottom: 0.9375rem;
 
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
- }
+  input{
+    width: 20rem;
+    height: 2.75rem;
+    border-radius: 0.5rem;
+    background: var(--dark-30);
+    padding: 0 2.8125rem;
+    border: none;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+  }
 
- img{
-  width: 21.634px;
-  height: 24px;
-  position: absolute;
-  left: 13px;
- }
+  img{
+    width: 1.35225rem;
+    height: 1.5rem;
+    position: absolute;
+    left: 0.8125rem;
+  }
 
- @media (max-width: 768px) {
+  @media (max-width: 48rem) {
     display: flex;
-    padding: 0 5px;
+    padding: 0 0.3125rem;
+
     input{
       width: 100%;
-      
     }
-      img{
-        left: 13px;
-        
-      }
 
+    img{
+      left: 0.8125rem;
+    }
   }
-  @media (max-width: 560px) {
-    
-      width: 100%;
-      justify-content: center;
-      margin: 0 auto;
-      padding: 0 5px;
-    }
 
+  @media (max-width: 35rem) {
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 0.3125rem;
+  }
 `;

@@ -5,24 +5,24 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 95px;
-    margin-top: 95px;
+    margin-bottom: 5.9375rem; 
+    margin-top: 5.9375rem; 
 
     & > * {
-        margin-right: 30px;
+        margin-right: 1.875rem; 
     }
 
     & > *:last-child {
         margin-right: 0;
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 36rem) { 
         align-items: center;
         flex-direction: column;
 
         & > * {
             margin-right: 0;
-            margin-top: 20px;
+            margin-top: 1.25rem; 
         }
 
         & > *:first-child {
@@ -30,12 +30,12 @@ const StyledContainer = styled.div`
         }
     }
 
-    @media (min-width: 577px) and (max-width: 768px) {
+    @media (min-width: 36.0625rem) and (max-width: 48rem) { 
         align-items: center;
         flex-direction: row;
 
         & > * {
-            margin-right: 10px;
+            margin-right: 0.625rem; 
             margin-top: 0;
         }
 
@@ -44,12 +44,12 @@ const StyledContainer = styled.div`
         }
     }
 
-    @media (min-width: 769px) {
+    @media (min-width: 48.0625rem) { 
         align-items: center;
         flex-direction: row;
 
         & > * {
-            margin-right: 20px;
+            margin-right: 1.25rem; 
             margin-top: 0;
         }
     }

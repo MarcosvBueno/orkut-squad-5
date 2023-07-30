@@ -1,50 +1,52 @@
 import styled from "styled-components";
 
 export const EditFormContainer = styled.div`
-  width: 592px;
-  height: 854px;
+  width: 37rem; 
   background: var(--dark-30);
-  border-radius: 16px;
+  border-radius: 1rem; 
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 24px;
+  gap: 1.5rem; 
+  padding: 1.5rem;
 
   div {
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    gap: 12px;
+    gap: 0.75rem;
   }
 
   h2 {
-    font-size: 16px;
+    font-size: 1rem; 
     font-style: normal;
     font-weight: 400;
     color: var(--dark-20);
   }
 
   p {
-    font-size: 16px;
+    font-size: 1rem; 
     font-style: normal;
     font-weight: 400;
     color: var(--dark-10);
   }
 
   > h3 {
-    font-size: 26px;
+    font-size: 1.625rem; 
     font-style: normal;
     font-weight: 500;
     color: var(--brand-color);
     text-align: center;
-    gap: 32px;
+    gap: 2rem; 
   }
 
   p[contenteditable="true"] {
     outline: none;
   }
-  @media (max-width: 768px) {
-    width: 100%;
+
+  @media (max-width: 48rem) {
+    width: 100%; 
   }
 `;
+
+
