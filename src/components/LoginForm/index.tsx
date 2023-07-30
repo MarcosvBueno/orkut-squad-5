@@ -1,7 +1,10 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import {
     CreateAccountButton,
-    CustomCheckbox,
+    CustomCheckboxInput,
+    CustomCheckboxLabel,
     EmailInput,
     ErrorContainer,
     ErrorMessage,
@@ -10,6 +13,7 @@ import {
     LoginButton,
     LoginFormContainer,
     LoginTitle,
+    LogoImage,
     PasswordInput,
     RememberMeContainer,
     RememberMeText,
@@ -24,22 +28,20 @@ function LoginForm() {
     const [passwordError, setPasswordError] = useState('');
     const [isLoginAttempted, setIsLoginAttempted] = useState(false);
     const [rememberPassword, setRememberPassword] = useState(false);
-
+    const [loginError, setLoginError] = useState('');
 
     const handleLogin = () => {
-        if (!email) {
-            setEmailError('Campo de e-mail não pode ser vazio.');
+        if (!email || !password || !isValidEmail(email)) {
             setIsLoginAttempted(true);
-        } else if (!isValidEmail(email)) {
-            setEmailError('Formato de e-mail inválido.');
-            setIsLoginAttempted(true);
-        } else if (!password) {
-            setPasswordError('Campo de senha não pode ser vazio.');
-            setIsLoginAttempted(true);
+            setEmailError(email ? (isValidEmail(email) ? '' : 'Formato de e-mail inválido.') : 'Campo de e-mail não pode ser vazio.');
+            setPasswordError(password ? '' : 'Campo de senha não pode ser vazio.');
+            setLoginError('');
         } else {
+            setIsLoginAttempted(false);
             setEmailError('');
             setPasswordError('');
-            setIsLoginAttempted(false);
+            setLoginError('');
+            navigate('/profile');
         }
     };
 
@@ -47,19 +49,15 @@ function LoginForm() {
         return /\S+@\S+\.\S+/.test(email);
     };
 
-    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
+    const handleEmailBlur = () => {
         if (isLoginAttempted) {
-            setEmailError('');
-            setIsLoginAttempted(false);
+            setEmailError(email ? '' : 'Campo de e-mail não pode ser vazio.');
         }
     };
 
-    const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value);
+    const handlePasswordBlur = () => {
         if (isLoginAttempted) {
-            setPasswordError('');
-            setIsLoginAttempted(false);
+            setPasswordError(password ? '' : 'Campo de senha não pode ser vazio.');
         }
     };
 
@@ -72,51 +70,64 @@ function LoginForm() {
         handleLogin();
     };
 
+    const navigate = useNavigate();
+
+    const handleCreateProfile = () => {
+        navigate('/register');
+    };
 
     return (
         <LoginFormContainer>
-            <img src={logo} alt="Logo" />
+            <LogoImage src={logo} alt="Logo" />
             <LoginTitle>Acesse o Orkut</LoginTitle>
             <Form onSubmit={handleSubmit}>
                 <EmailInput
                     id="email"
                     type="text"
                     value={email}
-                    onChange={handleEmailChange}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onBlur={handleEmailBlur}
                     placeholder="E-mail"
                 />
-                {isLoginAttempted && !email && (
+                {isLoginAttempted && emailError ? (
                     <ErrorContainer>
                         <ErrorMessage>{emailError}</ErrorMessage>
                     </ErrorContainer>
-                )}
-                {isLoginAttempted && email && !isValidEmail(email) && (
-                    <ErrorContainer>
-                        <ErrorMessage>{emailError}</ErrorMessage>
-                    </ErrorContainer>
-                )}
+                ) : null}
                 <PasswordInput
                     id="password"
                     type="password"
                     value={password}
-                    onChange={handlePasswordChange}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onBlur={handlePasswordBlur}
                     placeholder="Senha"
                 />
-                {isLoginAttempted && !password && (
+                {isLoginAttempted && passwordError ? (
                     <ErrorContainer>
                         <ErrorMessage>{passwordError}</ErrorMessage>
                     </ErrorContainer>
-                )}
+                ) : null}
+                {isLoginAttempted && loginError ? (
+                    <ErrorContainer>
+                        <ErrorMessage>{loginError}</ErrorMessage>
+                    </ErrorContainer>
+                ) : null}
                 <RememberMeContainer>
-                    <CustomCheckbox
+                    <CustomCheckboxInput
+                        id="rememberMe"
                         type="checkbox"
                         checked={rememberPassword}
                         onChange={handleRememberMeChange}
                     />
-                    <RememberMeText>Lembrar minha senha</RememberMeText>
+                    <CustomCheckboxLabel />
+                    <label htmlFor="rememberMe">
+                        <RememberMeText>Lembrar minha senha</RememberMeText>
+                    </label>
                 </RememberMeContainer>
                 <LoginButton type="submit">Entrar na conta</LoginButton>
-                <CreateAccountButton type="button">Criar uma conta</CreateAccountButton>
+                <CreateAccountButton type="button" onClick={handleCreateProfile}>
+                    Criar uma conta
+                </CreateAccountButton>
                 <ForgotPasswordLink href="./" title="Esqueci a minha senha">
                     Esqueci a minha senha
                 </ForgotPasswordLink>
