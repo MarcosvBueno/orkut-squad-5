@@ -5,7 +5,7 @@ export const ProfileHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
-
+  width: 100%;
 
  > button {
   width: 100%;
