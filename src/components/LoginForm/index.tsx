@@ -1,4 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import {
     CreateAccountButton,
     CustomCheckboxInput,
@@ -26,21 +28,20 @@ function LoginForm() {
     const [passwordError, setPasswordError] = useState('');
     const [isLoginAttempted, setIsLoginAttempted] = useState(false);
     const [rememberPassword, setRememberPassword] = useState(false);
+    const [loginError, setLoginError] = useState('');
 
     const handleLogin = () => {
-        if (!email) {
-            setEmailError('Campo de e-mail não pode ser vazio.');
+        if (!email || !password || !isValidEmail(email)) {
             setIsLoginAttempted(true);
-        } else if (!isValidEmail(email)) {
-            setEmailError('Formato de e-mail inválido.');
-            setIsLoginAttempted(true);
-        } else if (!password) {
-            setPasswordError('Campo de senha não pode ser vazio.');
-            setIsLoginAttempted(true);
+            setEmailError(email ? (isValidEmail(email) ? '' : 'Formato de e-mail inválido.') : 'Campo de e-mail não pode ser vazio.');
+            setPasswordError(password ? '' : 'Campo de senha não pode ser vazio.');
+            setLoginError('');
         } else {
+            setIsLoginAttempted(false);
             setEmailError('');
             setPasswordError('');
-            setIsLoginAttempted(false);
+            setLoginError('');
+            navigate('/profile');
         }
     };
 
@@ -48,19 +49,15 @@ function LoginForm() {
         return /\S+@\S+\.\S+/.test(email);
     };
 
-    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
+    const handleEmailBlur = () => {
         if (isLoginAttempted) {
-            setEmailError('');
-            setIsLoginAttempted(false);
+            setEmailError(email ? '' : 'Campo de e-mail não pode ser vazio.');
         }
     };
 
-    const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value);
+    const handlePasswordBlur = () => {
         if (isLoginAttempted) {
-            setPasswordError('');
-            setIsLoginAttempted(false);
+            setPasswordError(password ? '' : 'Campo de senha não pode ser vazio.');
         }
     };
 
@@ -73,6 +70,12 @@ function LoginForm() {
         handleLogin();
     };
 
+    const navigate = useNavigate();
+
+    const handleCreateProfile = () => {
+        navigate('/register');
+    };
+
     return (
         <LoginFormContainer>
             <LogoImage src={logo} alt="Logo" />
@@ -82,31 +85,33 @@ function LoginForm() {
                     id="email"
                     type="text"
                     value={email}
-                    onChange={handleEmailChange}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onBlur={handleEmailBlur}
                     placeholder="E-mail"
                 />
-                {isLoginAttempted && !email && (
+                {isLoginAttempted && emailError ? (
                     <ErrorContainer>
                         <ErrorMessage>{emailError}</ErrorMessage>
                     </ErrorContainer>
-                )}
-                {isLoginAttempted && email && !isValidEmail(email) && (
-                    <ErrorContainer>
-                        <ErrorMessage>{emailError}</ErrorMessage>
-                    </ErrorContainer>
-                )}
+                ) : null}
                 <PasswordInput
                     id="password"
                     type="password"
                     value={password}
-                    onChange={handlePasswordChange}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onBlur={handlePasswordBlur}
                     placeholder="Senha"
                 />
-                {isLoginAttempted && !password && (
+                {isLoginAttempted && passwordError ? (
                     <ErrorContainer>
                         <ErrorMessage>{passwordError}</ErrorMessage>
                     </ErrorContainer>
-                )}
+                ) : null}
+                {isLoginAttempted && loginError ? (
+                    <ErrorContainer>
+                        <ErrorMessage>{loginError}</ErrorMessage>
+                    </ErrorContainer>
+                ) : null}
                 <RememberMeContainer>
                     <CustomCheckboxInput
                         id="rememberMe"
@@ -120,7 +125,9 @@ function LoginForm() {
                     </label>
                 </RememberMeContainer>
                 <LoginButton type="submit">Entrar na conta</LoginButton>
-                <CreateAccountButton type="button">Criar uma conta</CreateAccountButton>
+                <CreateAccountButton type="button" onClick={handleCreateProfile}>
+                    Criar uma conta
+                </CreateAccountButton>
                 <ForgotPasswordLink href="./" title="Esqueci a minha senha">
                     Esqueci a minha senha
                 </ForgotPasswordLink>
