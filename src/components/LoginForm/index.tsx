@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent,useContext } from 'react';
+import React, { useState, ChangeEvent, FormEvent,useContext,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/user-context';
 import {
@@ -30,7 +30,11 @@ function LoginForm() {
     const [rememberPassword, setRememberPassword] = useState(false);
     const [loginError, setLoginError] = useState('');
 
-    const { setUserIsLogged } = useContext(UserContext)!;
+    const { setUserIsLogged,userIsLogged } = useContext(UserContext)!;
+
+    useEffect(() => {
+       setUserIsLogged(false);
+    },[]);
 
     const handleLogin = () => {
         if (!email || !password || !isValidEmail(email)) {
