@@ -8,14 +8,20 @@ import ProfileInfo from '../../components/ProfileInfo';
 import { UserContext } from '../../context/user-context';
 import { useNavigate } from 'react-router';
 function Profile() {
-
-  const {setUserIsLogged} = useContext(UserContext)!;
-
+ // Getting the setUserIsLogged function from the UserContext using the useContext hook
+ const {setUserIsLogged} = useContext(UserContext)!;
+  
+ // Getting the navigate function to perform programmatic navigation between routes
   const navigate = useNavigate();
 
+
+  // Using the useEffect hook to perform a side effect
+  // This will occur whenever the reference of the setUserIsLogged function changes
   useEffect(() => {
+    // Setting the user's login state to "true" when the component is mounted
     setUserIsLogged(true);
   }, [setUserIsLogged]);
+
 
   return ( 
     <Container>
