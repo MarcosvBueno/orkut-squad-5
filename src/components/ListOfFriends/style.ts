@@ -1,24 +1,23 @@
 import styled from "styled-components"; 
 
-
 export const FriendList = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   background-color: var(--dark-30);
-  border-radius: 16px;
-  padding: 24px;
-  gap: 24px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  gap: 1.5rem;
 
   h3 {
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     color: var(--dark-10);
   }
 
   button {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-style: normal;
     font-weight: 500;
     color: var(--brand-color);
@@ -32,11 +31,10 @@ export const FriendList = styled.div`
     scale: 1.1;
   }
 
-
   img {
-    width: 56px;
-    height: 56px;
-    border-radius: 100px;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
   }
 
   > div {
@@ -45,41 +43,37 @@ export const FriendList = styled.div`
     justify-content: space-between;
     align-items: center;
     text-align: center;
-
   }
 
   :nth-child(1) {
-    margin-bottom: 4px;
+    margin-bottom: 0.25rem;
   }
 
-
-  @media (max-width: 968px) {
+  @media (max-width: 60.5rem) {
     width: 100%;
     justify-content: center;
     margin: 0 auto;
     
     h3 {
-      font-size: 20px;
+      font-size: 1.25rem;
     }
 
     button{
-      font-size: 18px;
+      font-size: 1.125rem;
     }
   }
 
-  @media (max-width: 560px) {
-      width: 100%;
-      justify-content: center;
-      margin: 0 auto;
-      
-      h3 {
-        font-size: 16px;
-      }
-
-      button{
-        font-size: 18px;
-      }
+  @media (max-width: 35rem) {
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    
+    h3 {
+      font-size: 1rem;
     }
 
-
+    button{
+      font-size: 1.125rem;
+    }
+  }
 `;

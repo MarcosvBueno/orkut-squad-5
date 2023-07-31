@@ -2,22 +2,22 @@ import styled from 'styled-components';
 
 export const HeaderWrapper = styled.header`
   background-color: var(--dark-30);
-  height: 92px;
+  height: 5.75rem; 
   display: flex;
   align-items: center;
   width: 100%;
+  max-width: 120rem; 
 
   div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1440px;
+    max-width: 90rem; 
     width: 100%;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 1.5rem; 
 
-    
-    @media (max-width: 768px) {
+    @media (max-width: 48rem) { 
       justify-content: center;
     }
   }
@@ -25,18 +25,17 @@ export const HeaderWrapper = styled.header`
   nav {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 2.5rem; 
 
     a {
       color: var(--dark-10);
-      font-size: 16px;
+      font-size: 1rem; 
       font-style: normal;
       font-weight: 400;
       text-decoration: none;
     }
 
-
-    @media (max-width: 768px) {
+    @media (max-width: 48rem) { 
       display: none;
     }
   }
@@ -45,42 +44,36 @@ export const HeaderWrapper = styled.header`
 export const HeaderLogin = styled.div`
   width: 100%;
   background-color: var(--dark-30);
-  height: 92px;
+  height: 5.75rem; 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 120rem; 
 
-  
-
-  > div{
+  > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1248px;
+    max-width: 78rem;
     width: 100%;
     margin: 0 auto;
-    gap: 120px;
-    padding: 0 24px;
+    gap: 7.5rem; 
+    padding: 0 1.5rem; 
   }
 
-  @media (max-width: 960px) {
-    
-
+  @media (max-width: 60rem) {
     > div {
-      gap: 24px;
+      gap: 1.5rem; 
       width: 100%;
-      padding: 0 24px;
+      padding: 0 1.5rem; 
     }
-
   }
 
-  @media (max-width: 768px) {
-    
+  @media (max-width: 48rem) { 
     > div {
       display: flex;
-      padding: 0 24px;
+      padding: 0 1.5rem; 
       width: 100%;
-      
     }
   }
 `;
@@ -88,32 +81,40 @@ export const HeaderLogin = styled.div`
 export const NavContent = styled.div`
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 3rem; 
   width: 100%;
 
   ul {
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 40px;
+    gap: 2.5rem; 
   }
 
-  li{
+  li {
     list-style: none;
-    cursor: pointer;
-    color: var(--dark-10);
-    font-size: 16px;
+    font-size: 1rem; 
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
+    text-decoration: none;
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      color: var(--dark-10);
+      font-size: 
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    &.profile-link a {
+      color: var(--brand-color);
+    }
   }
 
-  li:nth-child(2){
-    color: var(--brand-color);
-  }
-
-  @media (max-width: 960px) {
+  @media (max-width: 60rem) {
     width: 100%;
-    gap: 48px;
+    gap: 3rem; 
 
     > nav {
       margin: 0 auto;
@@ -121,13 +122,11 @@ export const NavContent = styled.div`
 
     ul {
       width: 100%;
-      gap: 50px;
+      gap: 3.125rem;
     }
-
   }
 
-  @media (max-width: 768px) {
-    
+  @media (max-width: 48rem) {
     nav {
       display: none;
     }
@@ -140,8 +139,8 @@ export const ContainerInputWUser = styled.div`
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  gap: 40px;
-
+  gap: 2.5rem; 
+  max-width: 120rem; 
 `;
 
 export const InputContent = styled.div`
@@ -150,42 +149,40 @@ export const InputContent = styled.div`
   align-items: center;
   width: 100%;
   position: relative;
+  max-width: 120rem;
 
-  
-    input{
+  input {
     width: 100%;
-    height: 43.959px;
-    border-radius: 8px;
+    height: 2.748rem; 
+    border-radius: 0.5rem; 
     border: none;
     background-color: var(--bg-text);
-    padding: 0 51px;
-    font-size: 14px;
+    padding: 0 3.188rem; 
+    font-size: 0.875rem; 
     font-style: normal;
     font-weight: 400;
-    }
+  }
 
-    img{
-      width: 24px;
-      height: 23.978px;
-      position: absolute;
-      left: 16px;
-    }
+  img {
+    width: 1.5rem; 
+    height: 1.499rem; 
+    position: absolute;
+    left: 1rem; 
+  }
 
-    @media (max-width: 960px) {
-     input {
-      display: none;
-
-     }
-
-     img{
-      left: 20px;
-     }
-
-    }
-
-    @media (max-width: 768px) {
+  @media (max-width: 60rem) { 
+    input {
       display: none;
     }
+
+    img {
+      left: 1.25rem; 
+    }
+  }
+
+  @media (max-width: 48rem) {
+    display: none;
+  }
 `;
 
 export const PerfilContent = styled.div`
@@ -193,37 +190,36 @@ export const PerfilContent = styled.div`
   width: 60%;
   align-items: center;
   justify-content: flex-end;
-  gap: 16px;
+  gap: 1rem; 
+  max-width: 120rem; 
 
   img {
-    width: 40px;
-    height: 40px;
-    border-radius: 80px;
+    width: 2.5rem; 
+    height: 2.5rem; 
+    border-radius: 5rem; 
 
     &:nth-of-type(2) {
-      width: 24px;
-      height: 24px;
+      width: 1.5rem; 
+      height: 1.5rem; 
     }
-
   }
 
-  p{
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
+  p {
+    font-size: 1rem; 
+    font-style: normal;
+    font-weight: 500;
   }
-    
-  @media (max-width: 960px) {
+
+  @media (max-width: 60rem) { 
     width: 100%;
     justify-content: flex-end;
-    gap:14px;
-  
-  }  
+    gap: 0.875rem; 
+  }
 
-  @media (max-width: 768px){
+  @media (max-width: 48rem) { 
     justify-content: flex-end;
 
-    p{
+    p {
       display: none;
     }
   }
