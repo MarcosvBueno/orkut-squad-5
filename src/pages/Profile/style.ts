@@ -77,7 +77,7 @@ export const Container = styled.main`
 
     & .profileHeaderDiv {
       margin: 0 auto;
-      width: 100%;
+      width: 100%;    
     }
   }
 
@@ -91,7 +91,7 @@ export const Container = styled.main`
 `;
 
 export const InputContainer = styled.div`
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: center;
   align-items: center;  
