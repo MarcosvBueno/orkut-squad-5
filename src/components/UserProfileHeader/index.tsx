@@ -1,27 +1,19 @@
 import React from 'react';
 import { ProfileHeader, UserProfile } from './style';
-import { useNavigate } from 'react-router-dom';
 
 interface UserProfileHeaderProps {
-  profileImage: string;
   name: string;
   status: string;
-  editProfilePath: string;
   buttonContent: string;
+  handleButton?: () => void;
 }
 
 const UserProfileHeader: React.FC<UserProfileHeaderProps> = ({
-  profileImage,
   name,
   status,
-  editProfilePath,
-  buttonContent
+  buttonContent,
+  handleButton,
 }) => {
-  const navigate = useNavigate();
-
-  const handleEditProfile = () => {
-    navigate(editProfilePath);
-  };
 
   return (
     <ProfileHeader>
@@ -30,7 +22,7 @@ const UserProfileHeader: React.FC<UserProfileHeaderProps> = ({
         <h2>{name}</h2>
         <p>{status}</p>
       </UserProfile>
-      <button onClick={handleEditProfile}>{buttonContent}</button>
+      <button onClick={handleButton}>{buttonContent}</button>
     </ProfileHeader>
   );
 };

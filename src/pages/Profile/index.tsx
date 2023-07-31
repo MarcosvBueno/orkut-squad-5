@@ -25,10 +25,8 @@ function Profile() {
       </div>
       <div className='profileHeaderDiv'>
       <UserProfileHeader
-        profileImage={profileImage}
         name="Iuri Silva"
         status="Solteiro, Brasil"
-        editProfilePath="/edit-profile"
         buttonContent="Editar meu perfil"
       />
       </div>

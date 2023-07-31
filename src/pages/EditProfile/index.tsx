@@ -15,18 +15,19 @@ function EditProfile() {
   }, [setUserIsLogged]);
 
   return (
+    <>
     <Container>
       <ProfileSide>
       <UserProfileHeader
-        profileImage={profileImage}
         name="Iuri Silva"
         status="Solteiro, Brasil"
-        editProfilePath="/profile"
         buttonContent="Salvar"
+        handleButton={() => {}}
       />
       </ProfileSide>
       <EditForm />
     </Container>
+    </>
   );
 }
 
