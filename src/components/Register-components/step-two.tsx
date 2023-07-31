@@ -1,8 +1,8 @@
-
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent, useContext } from 'react';
 import { Container } from '../../pages/Register/style';
 import logo from "../../assets/img/logo-orkut-simples.svg";
-import {useNavigate} from "react-router-dom";
+import { UserContext } from '../../context/user-context';
+import Modal from '../Modal';
 
 
 interface Props {
@@ -12,8 +12,8 @@ interface Props {
 }
 
 
-const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) => {
-  const navigate = useNavigate();
+const Step2 = ({ handleComplete, handlePrev}: Props) => {
+
   const initialFormData = {
     selfDescription: '',
     interests: '',
@@ -27,6 +27,8 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const { modalIsVisible, setModalIsVisible } = useContext(UserContext)!;
+
  
  // This function is called whenever a change occurs in any input field or select element of the form. It updates the formData state based on user input. 
  //If the input element is of type file, it handles the selected file accordingly.
@@ -66,12 +68,13 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
     handlePrev();
   };
 
-  //This function is called when registration is complete (registrationCompleted is true). It calls the handleComplete function passed in as a prop, indicating that the registration process is complete, and then navigates the user back to the login page using the navigate function from the react-router-dom package.
-
-  const handleLogin = () => {
+  //This function is called when the user clicks on the "Finish Registration" button. It calls the handleComplete() function passed as a prop, advancing to the next step in the registration process. Also, sets modalIsVisible to true, showing the registration success Modal component.
+  
+  const handleFinalizarCadastro = () => {
+   
     handleComplete();
-    console.log('Navigating back to the login page.');
-    navigate('/')
+    console.log('Showing the modal.');
+    setModalIsVisible(true);
   };
 
  //This is an array containing different relationship status options such as "single", "married", "widowed", "divorced". It is used to populate the select element with these options.
@@ -84,6 +87,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
   ];
 
   return (
+    <>
     <Container onSubmit={handleSubmit}>
       <img src={logo} alt="Logo"/>
       <h2>Acesse o orkut</h2>
@@ -160,24 +164,25 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
         onChange={handleChange}
       />
         <label htmlFor="profilePhoto">Upload Foto de perfil</label>
-
-
-    {registrationCompleted ? (
-        <>
-          <p>Cadastro finalizado</p>
-          <button onClick={handleLogin}>Voltar para o login</button>
-        </>
-      ) : (
-        <>
-          <button type="submit">Finalizar Login</button>
-          <button className="btn-back" onClick={handleGoBack}>
-            Voltar para o cadastro
-          </button>
-        </>
-      )}
+        <button onClick={handleFinalizarCadastro}>
       
-     
-    </Container>
+        </button>
+
+        <button className="btn-back" onClick={handleGoBack}>
+          Voltar para o cadastro
+        </button>
+      </Container>
+
+      {modalIsVisible && 
+        <Modal
+          imageLogo={logo}
+          text="Cadastro finalizado com sucesso"
+          buttonContent="Voltar para o login"
+          buttonLink="/"
+        />
+      }
+    </>
+
   );
 };
 

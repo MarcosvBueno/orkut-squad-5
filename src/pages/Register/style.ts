@@ -69,14 +69,6 @@ export const Container = styled.form`
     color: var(--error-color);
   }
 
-  p {
-   
-    font-size: 1.125rem; 
-    font-weight: 400;
-    line-height: 1.5rem; 
-    letter-spacing: 0;
-    color: var(--success-color);
-  }
 
   button {
     display: block;

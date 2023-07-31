@@ -11,7 +11,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 1.25rem;
 
   > div {
     background-color: var(--dark-30);
@@ -19,27 +19,30 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
-    padding: 40px;  
-    gap: 24px;
+    border-radius: 0.625rem; 
+    padding: 2.5rem; 
+    gap: 1.5rem; 
   }
 
   button {
     background-color: var(--brand-color);
     color: var(--dark-40);
     border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 0.625rem; 
+    padding: 0.625rem 1.25rem; 
+    font-size: 1rem; 
     font-weight: bold;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
-      filter: brightness(0.9);
+      transform: scale(1.1);
     }
- 
-    a{
+
+    a {
       color: var(--dark-40);
       text-decoration: none;
     }
   }
 `;
+
+    
