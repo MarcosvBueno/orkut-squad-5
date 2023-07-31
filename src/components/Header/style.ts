@@ -102,7 +102,6 @@ export const NavContent = styled.div`
       text-decoration: none;
       cursor: pointer;
       color: var(--dark-10);
-      font-size: 
       font-style: normal;
       font-weight: 600;
     }
