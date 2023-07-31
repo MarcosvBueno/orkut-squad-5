@@ -17,7 +17,7 @@ const Step2 = ({ handleComplete, handlePrev}: Props) => {
   const initialFormData = {
     selfDescription: '',
     interests: '',
-    statusRelationship: '',
+    statusRelationship:'',
     childrens: '',
     smoke: '',
     drinks: '',
@@ -69,7 +69,7 @@ const Step2 = ({ handleComplete, handlePrev}: Props) => {
   };
 
   //This function is called when the user clicks on the "Finish Registration" button. It calls the handleComplete() function passed as a prop, advancing to the next step in the registration process. Also, sets modalIsVisible to true, showing the registration success Modal component.
-  
+
   const handleFinalizarCadastro = () => {
    
     handleComplete();
@@ -106,7 +106,7 @@ const Step2 = ({ handleComplete, handlePrev}: Props) => {
         onChange={handleChange}
       />
       <select
-  name="statusRelacionamento"
+  name="statusRelationship"
   value={formData.statusRelationship} 
   onChange={handleChange}
 >
@@ -149,7 +149,7 @@ const Step2 = ({ handleComplete, handlePrev}: Props) => {
       />
       <input
         type="text"
-        name="Favorites movies"
+        name="movies" 
         placeholder="Filmes Favoritos"
         value={formData.movies}
         onChange={handleChange}
@@ -165,7 +165,7 @@ const Step2 = ({ handleComplete, handlePrev}: Props) => {
       />
         <label htmlFor="profilePhoto">Upload Foto de perfil</label>
         <button onClick={handleFinalizarCadastro}>
-      
+      Finalizar Cadastro
         </button>
 
         <button className="btn-back" onClick={handleGoBack}>
