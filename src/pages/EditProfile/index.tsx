@@ -1,14 +1,17 @@
 import React, { useContext, useEffect } from "react";
-
 import EditForm from "../../components/EditForm";
 import { Container, ProfileSide} from "./style";
-import profileImage from "../../assets/img/profile-image.png";
 import UserProfileHeader from '../../components/UserProfileHeader';
 import { UserContext } from "../../context/user-context";
+import Modal from "../../components/Modal";
 function EditProfile() {
 
 
-  const {setUserIsLogged} = useContext(UserContext)!;
+  const {setUserIsLogged, modalIsVisible, setModalIsVisible} = useContext(UserContext)!;
+
+  function handleModal() {
+    setModalIsVisible(true)
+  }
 
   useEffect(() => {
     setUserIsLogged(true);
@@ -22,11 +25,12 @@ function EditProfile() {
         name="Iuri Silva"
         status="Solteiro, Brasil"
         buttonContent="Salvar"
-        handleButton={() => {}}
+        handleButton={handleModal}
       />
       </ProfileSide>
       <EditForm />
     </Container>
+    {modalIsVisible && <Modal imageLogo={""} text={"Informações alteradas ✔"} buttonContent={"Voltar para o perfil"} buttonLink={"/profile"} />}
     </>
   );
 }
