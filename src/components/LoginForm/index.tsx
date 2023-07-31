@@ -1,6 +1,8 @@
-import React, { useState, ChangeEvent, FormEvent,useContext,useEffect } from 'react';
+import React, { useState, ChangeEvent, FormEvent, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/user-context';
+import Modal from "../../components/Modal";
+import logo from "../../assets/img/logo-orkut-simples.svg";
 import {
     CreateAccountButton,
     CustomCheckboxInput,
@@ -19,8 +21,6 @@ import {
     RememberMeText,
 } from './style';
 
-import logo from "../../assets/img/logo-orkut-simples.svg";
-
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -29,12 +29,11 @@ function LoginForm() {
     const [isLoginAttempted, setIsLoginAttempted] = useState(false);
     const [rememberPassword, setRememberPassword] = useState(false);
     const [loginError, setLoginError] = useState('');
-
-    const { setUserIsLogged} = useContext(UserContext)!;
+    const { setUserIsLogged, modalIsVisible, setModalIsVisible } = useContext(UserContext)!;
 
     useEffect(() => {
-       setUserIsLogged(false);
-    },[setUserIsLogged]);
+        setUserIsLogged(false);
+    }, [setUserIsLogged]);
 
     const handleLogin = () => {
         if (!email || !password || !isValidEmail(email)) {
@@ -83,6 +82,10 @@ function LoginForm() {
         navigate('/register');
 
     };
+
+    const handleModal = () => {
+        setModalIsVisible(!modalIsVisible);
+    }
 
     return (
         <LoginFormContainer>
@@ -137,9 +140,10 @@ function LoginForm() {
                 <CreateAccountButton type="button" onClick={handleCreateProfile}>
                     Criar uma conta
                 </CreateAccountButton>
-                <ForgotPasswordLink href="./" title="Esqueci a minha senha">
+                <ForgotPasswordLink title="Esqueci a minha senha" onClick={handleModal}>
                     Esqueci a minha senha
                 </ForgotPasswordLink>
+                {modalIsVisible && <Modal imageLogo={''} text='Acesse seu e-mail e verifique suas informações.' buttonContent='Retornar ao perfil' buttonLink="/" />}
             </Form>
         </LoginFormContainer>
     );
