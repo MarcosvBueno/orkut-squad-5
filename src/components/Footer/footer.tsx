@@ -1,6 +1,7 @@
 import { FooterContainer } from "./style";
 
 
+
 const Footer = () => {
     return (
       <FooterContainer>
@@ -8,6 +9,9 @@ const Footer = () => {
         <h2>Todos os direitos reservados </h2>
       </footer>
       </FooterContainer>
+
+     
+     
     );
   };
   
