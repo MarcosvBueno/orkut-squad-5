@@ -1,3 +1,4 @@
+import { useEffect,useContext} from 'react';
 import profileImage from '../../assets/img/profile-image.png';
 import SearchIcon from '../../assets/img/Search.svg';
 import { Container,InputContainer} from './style';
@@ -5,7 +6,15 @@ import UserProfileHeader from '../../components/UserProfileHeader';
 import ListOfFriends from '../../components/ListOfFriends';
 import ListOfCommunity from '../../components/ListOfCommunity';
 import ProfileInfo from '../../components/ProfileInfo';
+import { UserContext } from '../../context/user-context';
 function Profile() {
+
+  const {setUserIsLogged} = useContext(UserContext)!;
+
+  useEffect(() => {
+    setUserIsLogged(true);
+  }, [setUserIsLogged]);
+
   return ( 
     <Container>
       <div className='inputDiv'>

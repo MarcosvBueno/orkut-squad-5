@@ -30,11 +30,11 @@ function LoginForm() {
     const [rememberPassword, setRememberPassword] = useState(false);
     const [loginError, setLoginError] = useState('');
 
-    const { setUserIsLogged,userIsLogged } = useContext(UserContext)!;
+    const { setUserIsLogged} = useContext(UserContext)!;
 
     useEffect(() => {
        setUserIsLogged(false);
-    },[]);
+    },[setUserIsLogged]);
 
     const handleLogin = () => {
         if (!email || !password || !isValidEmail(email)) {
