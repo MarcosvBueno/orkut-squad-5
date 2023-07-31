@@ -5,8 +5,9 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 5.9375rem; 
-    margin-top: 5.9375rem; 
+    height: 90vh;
+    width: 100%;
+
 
     & > * {
         margin-right: 1.875rem; 

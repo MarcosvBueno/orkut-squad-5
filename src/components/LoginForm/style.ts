@@ -33,6 +33,7 @@ const CustomCheckboxInput = styled.input.attrs({ type: "checkbox" })`
 `;
 
 const CustomCheckboxLabel = styled.label`
+    align-items: center;
     background: var(--bg-text);
     border: 0.0625rem solid #dcdcdc; 
     border-radius: 0.375rem; 
@@ -186,6 +187,7 @@ const RememberMeText = styled.span`
     font-weight: 400;
     line-height: normal;
     margin-left: 0.5rem; 
+
 `;
 
 export {
