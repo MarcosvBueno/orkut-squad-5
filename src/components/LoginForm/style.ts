@@ -92,6 +92,7 @@ const ErrorMessage = styled.p`
 
 const ForgotPasswordLink = styled.a`
     color: var(--brand-color);
+    cursor: pointer;
     display: block;
     font-size: 0.875rem; 
     font-style: normal;

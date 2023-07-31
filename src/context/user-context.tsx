@@ -17,7 +17,7 @@ interface UserProviderProps {
 }
 
 export const UserProvider = (props: UserProviderProps) => {
-  // State to hold the user login status
+  // State to hold the user login status and modal visibility status
   const [userIsLogged, setUserIsLogged] = useState(false);
   const [modalIsVisible, setModalIsVisible] = useState(false);
   
