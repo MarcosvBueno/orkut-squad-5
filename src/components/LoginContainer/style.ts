@@ -4,10 +4,10 @@ const StyledContainer = styled.div`
     align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     height: 90vh;
+    justify-content: center;
+    min-width: 20rem;
     width: 100%;
-
 
     & > * {
         margin-right: 1.875rem; 
