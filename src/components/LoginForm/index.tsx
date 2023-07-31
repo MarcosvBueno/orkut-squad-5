@@ -81,7 +81,7 @@ function LoginForm() {
 
     const handleCreateProfile = () => {
         navigate('/register');
-        
+
     };
 
     return (
@@ -127,11 +127,12 @@ function LoginForm() {
                         checked={rememberPassword}
                         onChange={handleRememberMeChange}
                     />
-                    <CustomCheckboxLabel />
+                    <CustomCheckboxLabel htmlFor="rememberMe" />
                     <label htmlFor="rememberMe">
                         <RememberMeText>Lembrar minha senha</RememberMeText>
                     </label>
                 </RememberMeContainer>
+
                 <LoginButton type="submit">Entrar na conta</LoginButton>
                 <CreateAccountButton type="button" onClick={handleCreateProfile}>
                     Criar uma conta

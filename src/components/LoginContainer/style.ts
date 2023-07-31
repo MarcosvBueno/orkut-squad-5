@@ -5,8 +5,8 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 95px;
-    margin-bottom: 95px;
+    height: 90vh;
+    width: 100%;
 
     & > * {
         margin-right: 30px;
@@ -17,6 +17,7 @@ const StyledContainer = styled.div`
     }
 
     @media (max-width: 576px) {
+        align-items: center;
         flex-direction: column;
 
         & > * {
@@ -30,19 +31,23 @@ const StyledContainer = styled.div`
     }
 
     @media (min-width: 577px) and (max-width: 768px) {
+        align-items: center;
         flex-direction: row;
 
         & > * {
-            margin-right: 20px;
+            margin-right: 10px;
             margin-top: 0;
         }
 
         & > *:first-child {
-            display: initial;
+            display: flex;
         }
     }
 
     @media (min-width: 769px) {
+        align-items: center;
+        flex-direction: row;
+
         & > * {
             margin-right: 20px;
             margin-top: 0;

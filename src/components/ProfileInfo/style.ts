@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const ProfileInfoSection = styled.section`
-  width: 592px;
-  height: 854px;
+  width: 100%;
+
   border-radius: 16px;
   background: var(--dark-30);
   padding: 24px;
@@ -36,6 +36,20 @@ export const ProfileInfoSection = styled.section`
     }
 `;
 
+export const Triangle = styled.div`
+  position: absolute;
+  left: 38%; 
+  top: 242px;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--bg-text); 
+
+  @media (max-width: 968px) {
+    display: none;
+  }
+`;
+
 export const PhraseContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -57,21 +71,6 @@ export const PhraseContainer = styled.div`
     padding: 12px;
   }
 
-  &::before {
-    content: ''; 
-    position: absolute;
-    top: 235px;
-    left: 709px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent var(--bg-text) transparent;
-  }
-
-  @media (max-width: 968px) {
-    &::before {
-      display: none;
-    }
-  }
   @media (max-width: 560px) {
       width: 100%;
         margin-bottom: 40px;

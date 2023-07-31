@@ -14,7 +14,7 @@ const CreateAccountButton = styled.button`
     line-height: normal;
     margin-top: 20px;
     padding: 10px 20px;
-    width: 336px;
+    width: 100%;
 `;
 
 const CustomCheckboxContainer = styled.div`
@@ -33,10 +33,12 @@ const CustomCheckboxInput = styled.input.attrs({ type: "checkbox" })`
 `;
 
 const CustomCheckboxLabel = styled.label`
+    align-items: center;
     background: var(--bg-text);
     border: 1px solid #dcdcdc;
     border-radius: 6px;
     cursor: pointer;
+    display: flex;
     height: 20px;
     left: -10px;
     margin-right: -5px;
@@ -73,7 +75,7 @@ const EmailInput = styled.input`
     height: 51px;
     margin-top: 20px;
     padding: 10px;
-    width: 336px;
+    width: 100%;
 `;
 
 const ErrorContainer = styled.div`
@@ -124,20 +126,23 @@ const LoginButton = styled.button`
     line-height: normal;
     margin-top: 20px;
     padding: 10px 20px;
-    width: 336px;
+    width: 100%;
 `;
 
 const LoginFormContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: var(--dark-40);
     border: none;
     border-radius: 20px;
-    display: flex;
-    flex-direction: column;
     height: 598px;
-    justify-content: center;
-    position: relative;
     width: 384px;
+
+    @media (max-width: 576px) {
+        margin-top: 0;
+    }
 `;
 
 const LoginTitle = styled.h1`
@@ -163,16 +168,15 @@ const PasswordInput = styled.input`
     height: 51px;
     margin-top: 20px;
     padding: 10px;
-    width: 336px;
+    width: 100%;
 `;
 
 const RememberMeContainer = styled.div`
     color: var(--text-color);
     cursor: pointer;
     display: flex;
-    margin-top: 20px;
-    margin-top: 20px;
     margin-left: 10px;
+    margin-top: 20px;
     user-select: none;
 `;
 
@@ -181,7 +185,7 @@ const RememberMeText = styled.span`
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 20px;
     margin-left: 8px;
 `;
 

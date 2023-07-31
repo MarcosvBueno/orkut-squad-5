@@ -4,7 +4,8 @@ import {
   QualitiesContainer,
   StarContainer,
   PersonalInformation,
-  UserInterests
+  UserInterests,
+  Triangle,
 } from './style';
 import starIcon from '../../assets/img/Star.svg';
 import heartIcon from '../../assets/img/Heart.svg';
@@ -15,6 +16,7 @@ function ProfileInfo() {
     <>
       <ProfileInfoSection>
         <h2>Boa tarde, Iuri Silva</h2>
+        <Triangle />
         <PhraseContainer>
           <p>Programar sem café é igual poeta sem poesia.</p>
         </PhraseContainer>
