@@ -25,12 +25,12 @@ function Header() {
       <NavContent>
         <img src={logo} alt="" />
         <nav>
-          <ul>
-            <li>Início</li>
-            <li>Perfil</li>
-            <li>Comunidades</li>
-            <li>Jogos</li>
-          </ul>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li className="profile-link"><a href="/profile">Perfil</a></li>
+          <li><a href="/community">Comunidades</a></li>
+          <li><a href="/games">Jogos</a></li>
+        </ul>
         </nav>
       </NavContent>
       <ContainerInputWUser>

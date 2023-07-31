@@ -1,7 +1,9 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { Container } from '../../pages/Register/style';
+import { Container, ModalContainer, ModalTitle, ModalButton } from '../../pages/Register/style';
 import logo from "../../assets/img/logo-orkut-simples.svg";
 import {useNavigate} from "react-router-dom";
+import Modal from 'react-modal';
+
 
 
 interface Props {
@@ -26,6 +28,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [showModal, setShowModal] = useState(false);
  
  // This function is called whenever a change occurs in any input field or select element of the form. It updates the formData state based on user input. 
  //If the input element is of type file, it handles the selected file accordingly.
@@ -53,11 +56,8 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-
     setFormData(initialFormData);
-   
-    handleComplete();
+    setShowModal(true);
   };
 
   // This function is called when the user clicks on the "Back to registration" button. It prevents the button's default behavior using e.preventDefault() and calls the handlePrev function passed as a prop, which navigates the user to the previous step in the registration process.
@@ -85,6 +85,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
   ];
 
   return (
+    <>
     <Container onSubmit={handleSubmit}>
       <img src={logo} alt="Logo"/>
       <h2>Acesse o orkut</h2>
@@ -163,7 +164,7 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
         <label htmlFor="profilePhoto">Upload Foto de perfil</label>
 
 
-    {registrationCompleted ? (
+        {registrationCompleted ? (
         <>
           <p>Cadastro finalizado</p>
           <button onClick={handleLogin}>Voltar para o login</button>
@@ -176,9 +177,16 @@ const Step2 = ({ handleComplete, handlePrev,  registrationCompleted  }: Props) =
           </button>
         </>
       )}
-      
+
      
     </Container>
+    {showModal && (
+        <ModalContainer>
+          <ModalTitle>Cadastro finalizado</ModalTitle>
+          <ModalButton onClick={handleLogin}>Voltar para o login</ModalButton>
+        </ModalContainer>
+      )}
+   </>
   );
 };
 

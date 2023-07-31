@@ -17,7 +17,7 @@ export const Container = styled.form`
   
 
   h2 {
-    font-family: SF Pro Display;
+  
     font-size: 1.5rem; 
     font-weight: 600;
     line-height: 1.5rem;
@@ -29,7 +29,7 @@ export const Container = styled.form`
   }
 
   label {
-    font-family: SF Pro Display;
+
     font-size: 1rem; 
     color: var(--brand-color);
   }
@@ -61,7 +61,7 @@ export const Container = styled.form`
   }
 
   span {
-    font-family: SF Pro Display;
+
     font-size: 0.975rem; 
     font-weight: 400;
     line-height: 1.5rem; 
@@ -70,7 +70,7 @@ export const Container = styled.form`
   }
 
   p {
-    font-family: SF Pro Display;
+   
     font-size: 1.125rem; 
     font-weight: 400;
     line-height: 1.5rem; 
@@ -142,3 +142,53 @@ export const Container = styled.form`
     }
   } } 
   `;
+
+ 
+export const ModalContainer = styled.div`
+position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--dark-30);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  max-width: 34.375rem; 
+  width: 90%; 
+
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  `;
+
+
+export const ModalTitle = styled.h2`
+font-size: 1.125rem; 
+font-weight: 400;
+line-height: 1.5rem; 
+letter-spacing: 0;
+color: var(--success-color);
+`;
+
+export const ModalButton = styled.button`
+display: block;
+    width: 100%;
+    height: 3.1875rem;
+    padding: 0.625rem; 
+    font-size: 1.125rem;
+    background-color: var(--brand-color);
+    color: #EFF3F8;
+    border: none;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+
+    margin-top: 0.625rem; 
+
+    &:hover {
+      background-color: #EFF3F8;
+      color: var(--brand-color);
+    }
+  
+`;
