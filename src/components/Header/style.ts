@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 90rem; 
+    max-width: 78rem; 
     width: 100%;
     margin: 0 auto;
     padding: 0 1.5rem; 

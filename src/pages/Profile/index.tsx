@@ -1,5 +1,4 @@
 import { useEffect,useContext} from 'react';
-import profileImage from '../../assets/img/profile-image.png';
 import SearchIcon from '../../assets/img/Search.svg';
 import { Container,InputContainer} from './style';
 import UserProfileHeader from '../../components/UserProfileHeader';
@@ -7,9 +6,12 @@ import ListOfFriends from '../../components/ListOfFriends';
 import ListOfCommunity from '../../components/ListOfCommunity';
 import ProfileInfo from '../../components/ProfileInfo';
 import { UserContext } from '../../context/user-context';
+import { useNavigate } from 'react-router';
 function Profile() {
 
   const {setUserIsLogged} = useContext(UserContext)!;
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setUserIsLogged(true);
@@ -28,6 +30,7 @@ function Profile() {
         name="Iuri Silva"
         status="Solteiro, Brasil"
         buttonContent="Editar meu perfil"
+        handleButton={() => { navigate('/edit-profile')}}
       />
       </div>
       <div className='ProfileInfoDiv'>
