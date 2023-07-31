@@ -186,9 +186,8 @@ const RememberMeText = styled.span`
     font-size: 1rem; 
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.2rem;
     margin-left: 0.5rem; 
-
 `;
 
 export {

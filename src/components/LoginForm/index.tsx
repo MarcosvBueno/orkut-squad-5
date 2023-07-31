@@ -29,12 +29,14 @@ function LoginForm() {
     const [isLoginAttempted, setIsLoginAttempted] = useState(false);
     const [rememberPassword, setRememberPassword] = useState(false);
     const [loginError, setLoginError] = useState('');
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
     const { setUserIsLogged, modalIsVisible, setModalIsVisible } = useContext(UserContext)!;
 
     useEffect(() => {
         setUserIsLogged(false);
     }, [setUserIsLogged]);
 
+    // Handle the login process. Validates the email and password, displays errors if needed, and handles successful login. Is called when the form is submitted.
     const handleLogin = () => {
         if (!email || !password || !isValidEmail(email)) {
             setIsLoginAttempted(true);
@@ -51,38 +53,45 @@ function LoginForm() {
         }
     };
 
+    // Validates the email format. Returns true if the email is valid, otherwise false.
     const isValidEmail = (email: string) => {
         return /\S+@\S+\.\S+/.test(email);
     };
 
+    // Handles onBlur events for the email field. Sets the email error if the form is submitted and the email field is empty.
     const handleEmailBlur = () => {
-        if (isLoginAttempted) {
+        if (isFormSubmitted) {
             setEmailError(email ? '' : 'Campo de e-mail não pode ser vazio.');
         }
     };
 
+    // Handles onBlur events for the password field. Sets the password error if the form is submitted and the password field is empty.
     const handlePasswordBlur = () => {
-        if (isLoginAttempted) {
+        if (isFormSubmitted) {
             setPasswordError(password ? '' : 'Campo de senha não pode ser vazio.');
         }
     };
 
+    // Handles the "Remember Me" checkbox change event. Updates the rememberPassword state based on the checkbox status.
     const handleRememberMeChange = (e: ChangeEvent<HTMLInputElement>) => {
         setRememberPassword(e.target.checked);
     };
 
+    // Handles form submission. Prevents default form submission, marks the form as submitted, and calls handleLogin.
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsFormSubmitted(true);
         handleLogin();
     };
 
     const navigate = useNavigate();
 
+    // Navigates to the create profile page.
     const handleCreateProfile = () => {
         navigate('/register');
-
     };
 
+    // Toggles modal visibility.
     const handleModal = () => {
         setModalIsVisible(!modalIsVisible);
     }
@@ -100,11 +109,11 @@ function LoginForm() {
                     onBlur={handleEmailBlur}
                     placeholder="E-mail"
                 />
-                {isLoginAttempted && emailError ? (
+                {isLoginAttempted && emailError && (
                     <ErrorContainer>
                         <ErrorMessage>{emailError}</ErrorMessage>
                     </ErrorContainer>
-                ) : null}
+                )}
                 <PasswordInput
                     id="password"
                     type="password"
@@ -113,16 +122,16 @@ function LoginForm() {
                     onBlur={handlePasswordBlur}
                     placeholder="Senha"
                 />
-                {isLoginAttempted && passwordError ? (
+                {isLoginAttempted && passwordError && (
                     <ErrorContainer>
                         <ErrorMessage>{passwordError}</ErrorMessage>
                     </ErrorContainer>
-                ) : null}
-                {isLoginAttempted && loginError ? (
+                )}
+                {isLoginAttempted && loginError && (
                     <ErrorContainer>
                         <ErrorMessage>{loginError}</ErrorMessage>
                     </ErrorContainer>
-                ) : null}
+                )}
                 <RememberMeContainer>
                     <CustomCheckboxInput
                         id="rememberMe"
@@ -143,7 +152,7 @@ function LoginForm() {
                 <ForgotPasswordLink title="Esqueci a minha senha" onClick={handleModal}>
                     Esqueci a minha senha
                 </ForgotPasswordLink>
-                {modalIsVisible && <Modal imageLogo={''} text='Acesse seu e-mail e verifique suas informações.' buttonContent='Retornar ao perfil' buttonLink="/" />}
+                {modalIsVisible && <Modal imageLogo={''} text='Acesse seu e-mail e verifique suas informações.' buttonContent='Retornar à página' buttonLink="/" />}
             </Form>
         </LoginFormContainer>
     );
