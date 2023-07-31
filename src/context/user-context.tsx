@@ -1,9 +1,11 @@
- import React, { useState, createContext, ReactNode } from 'react';
+import React, { useState, createContext, ReactNode } from 'react';
 
 // Defining types for the context
 interface UserContextType {
   userIsLogged: boolean;
   setUserIsLogged: React.Dispatch<React.SetStateAction<boolean>>;
+  modalIsVisible: boolean;
+  setModalIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // Initializing the context with an initial value of null
@@ -17,10 +19,11 @@ interface UserProviderProps {
 export const UserProvider = (props: UserProviderProps) => {
   // State to hold the user login status
   const [userIsLogged, setUserIsLogged] = useState(false);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
   
   return (
     // Providing the state and setter to the context value
-    <UserContext.Provider value={{ userIsLogged, setUserIsLogged }}>
+    <UserContext.Provider value={{ userIsLogged, setUserIsLogged,modalIsVisible,setModalIsVisible }}>
       {props.children}
     </UserContext.Provider>
   );
