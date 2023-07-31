@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+# ![logo-orkut-simples](https://github.com/MarcosvBueno/orkut-squad-5/assets/104960654/4ba73666-b59f-4866-92f5-b6ff4bf8cbc1)rkut:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>This project represents the second challenge of the Compass.UOL Scholarship Program, and this time, it was undertaken collaboratively as a group effort. The primary objective was to develop 
+  a website inspired by the classic social networking platform, Orkut. Our task involved creating a responsive web application with various distinct page routes, 
+  enabling users to access different sections seamlessly on various devices. Additionally, we implemented a user registration and login system to enhance the overall user experience.</p>
 
-## Available Scripts
+## List of Features:
+- The website allows users to navigate through various pages, enabling them to explore different sections and content.
 
-In the project directory, you can run:
+- Users can create their accounts on the platform, providing essential information such as name, email, and password.
 
-### `npm start`
+- Registered users have the flexibility to edit and update their profile information, including profile picture, bio, and other relevant details.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Users can log in to their accounts, gaining personalized access to features and content reserved for registered users.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Technologies Used:
+[![My Skills](https://skillicons.dev/icons?i=react,ts)](https://skillicons.dev)
 
-### `npm test`
+## Demonstration :
+https://github.com/MarcosvBueno/orkut-squad-5/assets/104960654/5e474bc4-cdc0-491d-b94f-d6aeee4f6f03
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to run the project :
 
-### `npm run build`
+1. **Requirements:**
+   - Node.js installed (with npm - Node Package Manager).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Cloning the repository:**
+   - git clone <repository_url>
+   
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Installing dependencies:**
+   - cd project_name
+   - npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Running the project:**
+   - npm start
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. **Accessing the project:**
+Open the project in your browser at: `http://localhost:3000` (or another port, if specified).
