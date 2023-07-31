@@ -143,7 +143,7 @@ function LoginForm() {
                 <ForgotPasswordLink title="Esqueci a minha senha" onClick={handleModal}>
                     Esqueci a minha senha
                 </ForgotPasswordLink>
-                {modalIsVisible && <Modal imageLogo={''} text='Acesse seu e-mail e verifique suas informações.' buttonContent='Retornar ao perfil' buttonLink="/" />}
+                {modalIsVisible && <Modal imageLogo={''} text='Acesse seu e-mail e verifique suas informações.' buttonContent='Retornar à página' buttonLink="/" />}
             </Form>
         </LoginFormContainer>
     );
